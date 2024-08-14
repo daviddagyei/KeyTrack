@@ -22,7 +22,7 @@ A simple key management system that uses Python, Tkinter, and OpenPyXL to manage
 
     ```bash
     git clone https://github.com/daviddagyei/KeyTrack.git
-    cd key-management-system
+    cd KeyTrack
     ```
 
 2. Install the required Python packages:
