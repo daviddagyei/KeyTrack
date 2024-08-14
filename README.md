@@ -1,4 +1,4 @@
-# Key Management System
+# KeyTrack
 
 A simple key management system that uses Python, Tkinter, and OpenPyXL to manage and track keys for apartment rooms. This system allows users to collect, return, report lost, and borrow spare keys, all while logging the actions with timestamps.
 
