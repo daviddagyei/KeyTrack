@@ -21,7 +21,7 @@ A simple key management system that uses Python, Tkinter, and OpenPyXL to manage
 1. Clone the repository:
 
     ```bash
-    git clone https://github.com/yourusername/key-management-system.git
+    git clone https://github.com/daviddagyei/KeyTrack.git
     cd key-management-system
     ```
 
@@ -45,4 +45,4 @@ A simple key management system that uses Python, Tkinter, and OpenPyXL to manage
 Run the script:
 
 ```bash
-python key_management_system.py
+python keytrack.py
