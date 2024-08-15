@@ -45,4 +45,24 @@ A simple key management system that uses Python, Tkinter, and OpenPyXL to manage
 Run the script:
 
 ```bash
+git pull
 python keytrack.py
+```
+## Pushing Updates
+
+After making changes (collecting, returning, reporting lost, borrowing spare keys), commit and push the updated key_distribution.xlsx file to the remote repository to keep the data synced:
+1. Add the changes to staging:
+   ```bash
+   git add key_distribution.xlsx
+   ```
+2. Commit the changes with a message:
+   ```bash
+   git commit -m "Updated key distribution data"
+   ```
+3. Push the changes to the remote repository:
+   ```bash
+   git push origin main
+
+
+
+
