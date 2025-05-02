@@ -1,0 +1,44 @@
+{% extends "base_auth.html" %}
+
+{% block title %}Login{% endblock %}
+
+{% block auth_content %}
+<div class="card shadow">
+    <div class="card-header bg-primary text-white">
+        <h4 class="mb-0">Login to KeyTrack</h4>
+    </div>
+    <div class="card-body p-4">
+        {% with messages = get_flashed_messages(with_categories=true) %}
+            {% if messages %}
+                {% for category, message in messages %}
+                    <div class="alert alert-{{ category }}">{{ message }}</div>
+                {% endfor %}
+            {% endif %}
+        {% endwith %}
+        
+        <form method="POST" action="{{ url_for('login') }}">
+            <div class="mb-3">
+                <label for="email" class="form-label">UChicago Email address</label>
+                <input type="email" class="form-control" id="email" name="email" 
+                       placeholder="yourname@uchicago.edu" 
+                       pattern="[a-zA-Z0-9._%+-]+@uchicago\.edu$" 
+                       title="Please enter a valid @uchicago.edu email address" 
+                       required>
+                <div class="form-text">Please use your @uchicago.edu email address</div>
+            </div>
+            <div class="mb-3">
+                <label for="password" class="form-label">Password</label>
+                <input type="password" class="form-control" id="password" name="password" required>
+            </div>
+            <div class="d-grid gap-2">
+                <button type="submit" class="btn btn-primary">Login</button>
+                <a href="{{ url_for('demo_mode') }}" class="btn btn-outline-primary">Continue as Demo</a>
+            </div>
+        </form>
+        
+        <div class="mt-3 text-center">
+            <p>Don't have an account? <a href="{{ url_for('signup') }}" class="text-primary">Sign up</a></p>
+        </div>
+    </div>
+</div>
+{% endblock %}

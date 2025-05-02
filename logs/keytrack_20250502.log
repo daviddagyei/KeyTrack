@@ -120,3 +120,21 @@
 2025-05-02 02:31:15,617 - INFO - Loaded 100 rooms from Excel file
 2025-05-02 02:31:15,620 - INFO - Loaded 100 rooms from Excel file
 2025-05-02 02:31:15,623 - INFO - Loaded 100 rooms from Excel file
+2025-05-02 10:42:50,883 - INFO - Loaded 100 rooms from Excel file
+2025-05-02 10:42:50,950 - ERROR - Error loading data: 'NoneType' object has no attribute 'cell'
+2025-05-02 10:42:50,950 - ERROR - Error loading data: 'NoneType' object has no attribute 'cell'
+2025-05-02 10:43:34,038 - INFO - Loaded 100 rooms from Excel file
+2025-05-02 10:43:34,049 - INFO - Loaded 100 rooms from Excel file
+2025-05-02 10:43:34,059 - INFO - Loaded 100 rooms from Excel file
+2025-05-02 10:53:55,247 - INFO - Loaded 100 rooms from Excel file
+2025-05-02 10:53:55,258 - INFO - Loaded 100 rooms from Excel file
+2025-05-02 10:53:55,263 - INFO - Loaded 100 rooms from Excel file
+2025-05-02 10:54:43,370 - INFO - Loaded 100 rooms from Excel file
+2025-05-02 10:54:43,376 - INFO - Loaded 100 rooms from Excel file
+2025-05-02 10:54:43,387 - INFO - Loaded 100 rooms from Excel file
+2025-05-02 11:01:08,826 - INFO - Loaded 100 rooms from Excel file
+2025-05-02 11:01:08,838 - INFO - Loaded 100 rooms from Excel file
+2025-05-02 11:01:08,846 - INFO - Loaded 100 rooms from Excel file
+2025-05-02 11:01:30,200 - INFO - Loaded 100 rooms from Excel file
+2025-05-02 11:01:30,241 - INFO - Loaded 100 rooms from Excel file
+2025-05-02 11:01:30,255 - INFO - Loaded 100 rooms from Excel file
