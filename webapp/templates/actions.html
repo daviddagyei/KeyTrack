@@ -1,0 +1,141 @@
+{% extends 'base.html' %}
+
+{% block title %}Key Actions{% endblock %}
+
+{% block content %}
+<div class="row mb-4">
+    <div class="col">
+        <h1>Key Actions</h1>
+        <p class="lead">Perform key management actions across all rooms</p>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-6 mb-4">
+        <div class="card shadow-sm">
+            <div class="card-header bg-primary text-white">
+                <h5 class="mb-0">Collect Key</h5>
+            </div>
+            <div class="card-body">
+                <form id="collectKeyForm">
+                    <div class="mb-3">
+                        <label for="collectRoomId" class="form-label">Room Number</label>
+                        <input type="text" class="form-control" id="collectRoomId" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="collectStudentName" class="form-label">Student Name</label>
+                        <input type="text" class="form-control" id="collectStudentName" required>
+                    </div>
+                    <div class="alert alert-danger d-none" id="collectKeyError"></div>
+                    <div class="d-grid">
+                        <button type="submit" class="btn btn-primary">
+                            <i class="bi bi-key me-1"></i> Collect Key
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-6 mb-4">
+        <div class="card shadow-sm">
+            <div class="card-header bg-success text-white">
+                <h5 class="mb-0">Return Key</h5>
+            </div>
+            <div class="card-body">
+                <form id="returnKeyForm">
+                    <div class="mb-3">
+                        <label for="returnRoomId" class="form-label">Room Number</label>
+                        <input type="text" class="form-control" id="returnRoomId" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="returnStudentName" class="form-label">Student Name</label>
+                        <input type="text" class="form-control" id="returnStudentName" required>
+                    </div>
+                    <div class="alert alert-danger d-none" id="returnKeyError"></div>
+                    <div class="d-grid">
+                        <button type="submit" class="btn btn-success">
+                            <i class="bi bi-arrow-return-left me-1"></i> Return Key
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-6 mb-4">
+        <div class="card shadow-sm">
+            <div class="card-header bg-danger text-white">
+                <h5 class="mb-0">Report Lost Key</h5>
+            </div>
+            <div class="card-body">
+                <form id="lostKeyForm">
+                    <div class="mb-3">
+                        <label for="lostRoomId" class="form-label">Room Number</label>
+                        <input type="text" class="form-control" id="lostRoomId" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="lostStudentName" class="form-label">Student Name</label>
+                        <input type="text" class="form-control" id="lostStudentName" required>
+                    </div>
+                    <div class="alert alert-danger d-none" id="lostKeyError"></div>
+                    <div class="d-grid">
+                        <button type="submit" class="btn btn-danger">
+                            <i class="bi bi-exclamation-triangle me-1"></i> Report Lost Key
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-6 mb-4">
+        <div class="card shadow-sm">
+            <div class="card-header bg-warning">
+                <h5 class="mb-0">Borrow Spare Key</h5>
+            </div>
+            <div class="card-body">
+                <form id="borrowKeyForm">
+                    <div class="mb-3">
+                        <label for="borrowRoomId" class="form-label">Room Number</label>
+                        <input type="text" class="form-control" id="borrowRoomId" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="borrowStudentName" class="form-label">Student Name</label>
+                        <input type="text" class="form-control" id="borrowStudentName" required>
+                    </div>
+                    <div class="alert alert-danger d-none" id="borrowKeyError"></div>
+                    <div class="d-grid">
+                        <button type="submit" class="btn btn-warning">
+                            <i class="bi bi-box-arrow-right me-1"></i> Borrow Spare Key
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Success Modal -->
+<div class="modal fade" id="successModal" tabindex="-1" aria-labelledby="successModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title text-success" id="successModalLabel">Success</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <div class="alert alert-success" id="successModalText"></div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
+
+{% block extra_js %}
+<script src="{{ url_for('static', filename='js/actions.js') }}"></script>
+{% endblock %}

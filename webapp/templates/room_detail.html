@@ -1,0 +1,260 @@
+{% extends 'base.html' %}
+
+{% block title %}Room Details{% endblock %}
+
+{% block content %}
+<div class="row mb-4">
+    <div class="col">
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="/">Dashboard</a></li>
+                <li class="breadcrumb-item active" aria-current="page">Room <span id="roomIdBreadcrumb"></span></li>
+            </ol>
+        </nav>
+        <h1 class="mb-3">Room <span id="roomId"></span> Details</h1>
+    </div>
+</div>
+
+<div class="row mb-4" id="roomLoading">
+    <div class="col text-center py-5">
+        <div class="spinner-border text-primary" role="status">
+            <span class="visually-hidden">Loading...</span>
+        </div>
+    </div>
+</div>
+
+<div class="row mb-4 d-none" id="roomDetails">
+    <div class="col-md-4">
+        <div class="card shadow-sm mb-4">
+            <div class="card-body">
+                <h5 class="card-title">Key Status</h5>
+                <div class="d-flex justify-content-between align-items-center my-3">
+                    <h6 class="mb-0">Total Keys:</h6>
+                    <span class="badge bg-secondary" id="totalKeys">0</span>
+                </div>
+                <div class="d-flex justify-content-between align-items-center my-3">
+                    <h6 class="mb-0">Available Keys:</h6>
+                    <span class="badge bg-success" id="availableKeys">0</span>
+                </div>
+                <div class="d-flex justify-content-between align-items-center my-3">
+                    <h6 class="mb-0">Collected Keys:</h6>
+                    <span class="badge bg-primary" id="collectedKeys">0</span>
+                </div>
+                <div class="d-flex justify-content-between align-items-center my-3">
+                    <h6 class="mb-0">Lost Keys:</h6>
+                    <span class="badge bg-danger" id="lostKeys">0</span>
+                </div>
+            </div>
+        </div>
+        <div class="card shadow-sm">
+            <div class="card-body">
+                <h5 class="card-title">Quick Actions</h5>
+                <div class="d-grid gap-2 mt-3">
+                    <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#collectKeyModal">
+                        <i class="bi bi-key me-1"></i> Collect Key
+                    </button>
+                    <button class="btn btn-success" data-bs-toggle="modal" data-bs-target="#returnKeyModal">
+                        <i class="bi bi-arrow-return-left me-1"></i> Return Key
+                    </button>
+                    <button class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#lostKeyModal">
+                        <i class="bi bi-exclamation-triangle me-1"></i> Report Lost Key
+                    </button>
+                    <button class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#borrowKeyModal">
+                        <i class="bi bi-box-arrow-right me-1"></i> Borrow Spare Key
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-8">
+        <div class="card shadow-sm mb-4">
+            <div class="card-header bg-light">
+                <ul class="nav nav-tabs card-header-tabs" id="roomTabs" role="tablist">
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link active" id="collected-tab" data-bs-toggle="tab" data-bs-target="#collected-tab-pane" type="button" role="tab" aria-controls="collected-tab-pane" aria-selected="true">Collected</button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link" id="returned-tab" data-bs-toggle="tab" data-bs-target="#returned-tab-pane" type="button" role="tab" aria-controls="returned-tab-pane" aria-selected="false">Returned</button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link" id="lost-tab" data-bs-toggle="tab" data-bs-target="#lost-tab-pane" type="button" role="tab" aria-controls="lost-tab-pane" aria-selected="false">Lost</button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link" id="borrowed-tab" data-bs-toggle="tab" data-bs-target="#borrowed-tab-pane" type="button" role="tab" aria-controls="borrowed-tab-pane" aria-selected="false">Borrowed</button>
+                    </li>
+                </ul>
+            </div>
+            <div class="card-body">
+                <div class="tab-content" id="roomTabsContent">
+                    <div class="tab-pane fade show active" id="collected-tab-pane" role="tabpanel" aria-labelledby="collected-tab" tabindex="0">
+                        <div id="collectedKeysList" class="list-group list-group-flush">
+                            <!-- Collected keys will be populated here -->
+                        </div>
+                        <p id="noCollectedKeys" class="text-muted text-center py-3">No keys have been collected.</p>
+                    </div>
+                    <div class="tab-pane fade" id="returned-tab-pane" role="tabpanel" aria-labelledby="returned-tab" tabindex="0">
+                        <div id="returnedKeysList" class="list-group list-group-flush">
+                            <!-- Returned keys will be populated here -->
+                        </div>
+                        <p id="noReturnedKeys" class="text-muted text-center py-3">No keys have been returned.</p>
+                    </div>
+                    <div class="tab-pane fade" id="lost-tab-pane" role="tabpanel" aria-labelledby="lost-tab" tabindex="0">
+                        <div id="lostKeysList" class="list-group list-group-flush">
+                            <!-- Lost keys will be populated here -->
+                        </div>
+                        <p id="noLostKeys" class="text-muted text-center py-3">No keys have been reported lost.</p>
+                    </div>
+                    <div class="tab-pane fade" id="borrowed-tab-pane" role="tabpanel" aria-labelledby="borrowed-tab" tabindex="0">
+                        <div id="borrowedKeysList" class="list-group list-group-flush">
+                            <!-- Borrowed keys will be populated here -->
+                        </div>
+                        <p id="noBorrowedKeys" class="text-muted text-center py-3">No spare keys have been borrowed.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Modals for actions -->
+<!-- Collect Key Modal -->
+<div class="modal fade" id="collectKeyModal" tabindex="-1" aria-labelledby="collectKeyModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="collectKeyModalLabel">Collect Key</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form id="collectKeyForm">
+                    <div class="mb-3">
+                        <label for="collectStudentName" class="form-label">Student Name</label>
+                        <input type="text" class="form-control" id="collectStudentName" required>
+                    </div>
+                </form>
+                <div class="alert alert-danger d-none" id="collectKeyError"></div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                <button type="button" class="btn btn-primary" id="collectKeyButton">Collect Key</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Return Key Modal -->
+<div class="modal fade" id="returnKeyModal" tabindex="-1" aria-labelledby="returnKeyModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="returnKeyModalLabel">Return Key</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form id="returnKeyForm">
+                    <div class="mb-3">
+                        <label for="returnStudentName" class="form-label">Student Name</label>
+                        <input type="text" class="form-control" id="returnStudentName" required>
+                    </div>
+                </form>
+                <div class="alert alert-danger d-none" id="returnKeyError"></div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                <button type="button" class="btn btn-success" id="returnKeyButton">Return Key</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Lost Key Modal -->
+<div class="modal fade" id="lostKeyModal" tabindex="-1" aria-labelledby="lostKeyModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="lostKeyModalLabel">Report Lost Key</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form id="lostKeyForm">
+                    <div class="mb-3">
+                        <label for="lostStudentName" class="form-label">Student Name</label>
+                        <input type="text" class="form-control" id="lostStudentName" required>
+                    </div>
+                </form>
+                <div class="alert alert-danger d-none" id="lostKeyError"></div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                <button type="button" class="btn btn-danger" id="lostKeyButton">Report Lost</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Borrow Key Modal -->
+<div class="modal fade" id="borrowKeyModal" tabindex="-1" aria-labelledby="borrowKeyModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="borrowKeyModalLabel">Borrow Spare Key</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form id="borrowKeyForm">
+                    <div class="mb-3">
+                        <label for="borrowStudentName" class="form-label">Student Name</label>
+                        <input type="text" class="form-control" id="borrowStudentName" required>
+                    </div>
+                </form>
+                <div class="alert alert-danger d-none" id="borrowKeyError"></div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                <button type="button" class="btn btn-warning" id="borrowKeyButton">Borrow Key</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Error Modal -->
+<div class="modal fade" id="errorModal" tabindex="-1" aria-labelledby="errorModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title text-danger" id="errorModalLabel">Error</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <div class="alert alert-danger" id="errorModalText"></div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Success Modal -->
+<div class="modal fade" id="successModal" tabindex="-1" aria-labelledby="successModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title text-success" id="successModalLabel">Success</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <div class="alert alert-success" id="successModalText"></div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
+
+{% block extra_js %}
+<script src="{{ url_for('static', filename='js/room_detail.js') }}"></script>
+{% endblock %}

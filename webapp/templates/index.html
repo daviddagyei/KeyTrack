@@ -1,0 +1,82 @@
+{% extends "base.html" %}
+
+{% block title %}KeyTrack - Dashboard{% endblock %}
+
+{% block content %}
+<h1 class="mb-4">Key Management Dashboard</h1>
+
+<div class="alert alert-info mb-4" id="stats-overview">
+    Loading key statistics...
+</div>
+
+<div class="row mb-4">
+    <div class="col-md-6">
+        <div class="card">
+            <div class="card-header bg-primary text-white">
+                <h5 class="mb-0">Available Keys</h5>
+            </div>
+            <div class="card-body">
+                <div class="chart-container">
+                    <canvas id="availableKeysChart"></canvas>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-6">
+        <div class="card">
+            <div class="card-header bg-primary text-white">
+                <h5 class="mb-0">Key Status</h5>
+            </div>
+            <div class="card-body">
+                <div class="chart-container">
+                    <canvas id="keyStatusChart"></canvas>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="card mb-4">
+    <div class="card-header bg-primary text-white">
+        <h5 class="mb-0">Rooms Overview</h5>
+    </div>
+    <div class="card-body">
+        <div class="table-responsive">
+            <table class="table table-striped table-hover">
+                <thead>
+                    <tr>
+                        <th>Room ID</th>
+                        <th>Total Keys</th>
+                        <th>Available</th>
+                        <th>Collected</th>
+                        <th>Lost</th>
+                        <th>Borrowed</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody id="rooms-table">
+                    <tr>
+                        <td colspan="7" class="text-center">Loading room data...</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+<div class="card">
+    <div class="card-header bg-primary text-white">
+        <h5 class="mb-0">Recent Activity</h5>
+    </div>
+    <div class="card-body">
+        <ul class="list-group" id="recent-activity">
+            <li class="list-group-item text-center">Loading recent activity...</li>
+        </ul>
+    </div>
+</div>
+{% endblock %}
+
+{% block extra_js %}
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script src="{{ url_for('static', filename='js/dashboard.js') }}"></script>
+{% endblock %}

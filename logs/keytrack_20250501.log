@@ -1,0 +1,291 @@
+2025-05-01 13:18:21,325 - INFO - Loaded 3 rooms from Excel file
+2025-05-01 13:18:21,341 - INFO - Loaded 3 rooms from Excel file
+2025-05-01 13:18:21,352 - INFO - Saved 3 rooms to Excel file
+2025-05-01 13:18:21,357 - INFO - Loaded 3 rooms from Excel file
+2025-05-01 13:18:21,360 - ERROR - Failed to open Excel file: [Errno 2] No such file or directory: 'nonexistent_file.xlsx'
+2025-05-01 13:18:21,360 - ERROR - Error loading data: Failed to open Excel file: [Errno 2] No such file or directory: 'nonexistent_file.xlsx'
+2025-05-01 13:18:21,375 - INFO - Loaded 3 rooms from Excel file
+2025-05-01 13:18:21,380 - ERROR - Failed to save Excel file: [Errno 13] Permission denied: 'test_key_distribution.xlsx'
+2025-05-01 13:18:21,381 - ERROR - Error saving data: Failed to save Excel file: [Errno 13] Permission denied: 'test_key_distribution.xlsx'
+2025-05-01 13:18:21,419 - INFO - Student John Doe is collecting a key for room 101
+2025-05-01 13:18:21,420 - INFO - Student John Doe collected a key for room 101
+2025-05-01 13:18:21,423 - INFO - Student John Doe is collecting a key for room 102
+2025-05-01 13:18:21,423 - WARNING - No keys available for room 102
+2025-05-01 13:18:21,426 - INFO - Student John Doe is collecting a key for room 999
+2025-05-01 13:18:21,428 - INFO - Student John Doe is collecting a key for room 101
+2025-05-01 13:18:21,428 - INFO - Student John Doe collected a key for room 101
+2025-05-01 13:18:21,429 - INFO - Student John Doe is returning a key for room 101
+2025-05-01 13:18:21,429 - INFO - Student John Doe returned a key for room 101
+2025-05-01 13:18:21,435 - INFO - Student Jane Smith is returning a key for room 101
+2025-05-01 13:18:21,436 - WARNING - No record of key collection for student Jane Smith in room 101
+2025-05-01 13:18:21,438 - INFO - Student John Doe is returning a key for room 999
+2025-05-01 13:18:21,440 - INFO - Student John Doe is reporting a lost key for room 103
+2025-05-01 13:18:21,440 - INFO - Student John Doe reported a lost key for room 103
+2025-05-01 13:18:21,442 - INFO - Student John Doe is reporting a lost key for room 101
+2025-05-01 13:18:21,442 - WARNING - No record of key collection for student John Doe in room 101
+2025-05-01 13:18:21,444 - INFO - Student Jane Smith is borrowing a spare key for room 101
+2025-05-01 13:18:21,444 - INFO - Student Jane Smith borrowed a spare key for room 101
+2025-05-01 13:18:21,446 - INFO - Student Jane Smith is borrowing a spare key for room 102
+2025-05-01 13:18:21,446 - WARNING - No spare keys available for room 102
+2025-05-01 13:31:16,603 - ERROR - Failed to open Excel file: [Errno 2] No such file or directory: 'nonexistent_file.xlsx'
+2025-05-01 13:31:16,682 - ERROR - Failed to save Excel file: Mock save error
+2025-05-01 13:31:16,807 - INFO - Loaded 0 rooms from Excel file
+2025-05-01 13:31:16,820 - INFO - Loaded 3 rooms from Excel file
+2025-05-01 13:31:16,834 - INFO - Loaded 3 rooms from Excel file
+2025-05-01 13:31:16,844 - INFO - Saved 3 rooms to Excel file
+2025-05-01 13:31:16,850 - INFO - Loaded 3 rooms from Excel file
+2025-05-01 13:31:16,865 - INFO - Loaded 3 rooms from Excel file
+2025-05-01 13:31:16,876 - INFO - Saved 3 rooms to Excel file
+2025-05-01 13:31:16,882 - INFO - Loaded 3 rooms from Excel file
+2025-05-01 13:31:16,895 - INFO - Loaded 3 rooms from Excel file
+2025-05-01 13:31:16,906 - INFO - Saved 3 rooms to Excel file
+2025-05-01 13:31:16,912 - INFO - Loaded 3 rooms from Excel file
+2025-05-01 13:31:16,914 - ERROR - Failed to open Excel file: [Errno 2] No such file or directory: 'nonexistent_file.xlsx'
+2025-05-01 13:31:16,914 - ERROR - Error loading data: Failed to open Excel file: [Errno 2] No such file or directory: 'nonexistent_file.xlsx'
+2025-05-01 13:31:16,927 - INFO - Loaded 3 rooms from Excel file
+2025-05-01 13:31:16,931 - ERROR - Failed to save Excel file: [Errno 13] Permission denied: 'test_key_distribution.xlsx'
+2025-05-01 13:31:16,931 - ERROR - Error saving data: Failed to save Excel file: [Errno 13] Permission denied: 'test_key_distribution.xlsx'
+2025-05-01 13:31:16,996 - INFO - Student John Doe is collecting a key for room 101
+2025-05-01 13:31:16,996 - INFO - Student John Doe collected a key for room 101
+2025-05-01 13:31:16,998 - INFO - Student John Doe is collecting a key for room 101
+2025-05-01 13:31:16,998 - INFO - Student John Doe collected a key for room 101
+2025-05-01 13:31:16,998 - INFO - Student John Doe is collecting a key for room 101
+2025-05-01 13:31:16,999 - INFO - Student John Doe collected a key for room 101
+2025-05-01 13:31:17,001 - INFO - Student John Doe is collecting a key for room 102
+2025-05-01 13:31:17,001 - WARNING - No keys available for room 102
+2025-05-01 13:31:17,003 - INFO - Student John Doe is collecting a key for room 999
+2025-05-01 13:31:17,005 - INFO - Student John Doe is collecting a key for room 101
+2025-05-01 13:31:17,005 - INFO - Student John Doe collected a key for room 101
+2025-05-01 13:31:17,006 - INFO - Student John Doe is returning a key for room 101
+2025-05-01 13:31:17,006 - INFO - Student John Doe returned a key for room 101
+2025-05-01 13:31:17,007 - INFO - Student Jane Smith is returning a key for room 101
+2025-05-01 13:31:17,008 - WARNING - No record of key collection for student Jane Smith in room 101
+2025-05-01 13:31:17,010 - INFO - Student John Doe is collecting a key for room 101
+2025-05-01 13:31:17,010 - INFO - Student John Doe collected a key for room 101
+2025-05-01 13:31:17,010 - INFO - Student John Doe is returning a key for room 101
+2025-05-01 13:31:17,010 - INFO - Student John Doe returned a key for room 101
+2025-05-01 13:31:17,010 - INFO - Student John Doe is returning a key for room 101
+2025-05-01 13:31:17,011 - WARNING - No record of key collection for student John Doe in room 101
+2025-05-01 13:31:17,012 - INFO - Student John Doe is returning a key for room 999
+2025-05-01 13:31:17,014 - INFO - Student John Doe is reporting a lost key for room 103
+2025-05-01 13:31:17,015 - INFO - Student John Doe reported a lost key for room 103
+2025-05-01 13:31:17,017 - INFO - Student John Doe is reporting a lost key for room 101
+2025-05-01 13:31:17,017 - WARNING - No record of key collection for student John Doe in room 101
+2025-05-01 13:31:17,021 - INFO - Student John Doe is reporting a lost key for room 999
+2025-05-01 13:31:17,023 - INFO - Student Jane Smith is borrowing a spare key for room 101
+2025-05-01 13:31:17,024 - INFO - Student Jane Smith borrowed a spare key for room 101
+2025-05-01 13:31:17,026 - INFO - Student Jane Smith is borrowing a spare key for room 102
+2025-05-01 13:31:17,026 - WARNING - No spare keys available for room 102
+2025-05-01 13:31:17,028 - INFO - Student Jane Smith is borrowing a spare key for room 999
+2025-05-01 13:31:17,030 - INFO - Student John Doe is collecting a key for room 101
+2025-05-01 13:31:17,030 - INFO - Student John Doe collected a key for room 101
+2025-05-01 13:31:17,031 - INFO - Student Jane Smith is collecting a key for room 101
+2025-05-01 13:31:17,031 - INFO - Student Jane Smith collected a key for room 101
+2025-05-01 13:31:17,031 - INFO - Student Bob Brown is collecting a key for room 101
+2025-05-01 13:31:17,031 - WARNING - No keys available for room 101
+2025-05-01 13:31:17,032 - INFO - Student John Doe is returning a key for room 101
+2025-05-01 13:31:17,032 - INFO - Student John Doe returned a key for room 101
+2025-05-01 13:31:17,032 - INFO - Student Bob Brown is collecting a key for room 101
+2025-05-01 13:31:17,032 - INFO - Student Bob Brown collected a key for room 101
+2025-05-01 13:34:54,444 - ERROR - Failed to open Excel file: [Errno 2] No such file or directory: 'nonexistent_file.xlsx'
+2025-05-01 13:34:54,498 - ERROR - Failed to save Excel file: Mock save error
+2025-05-01 13:34:54,640 - INFO - Loaded 0 rooms from Excel file
+2025-05-01 13:34:54,657 - INFO - Loaded 3 rooms from Excel file
+2025-05-01 13:34:54,672 - INFO - Loaded 3 rooms from Excel file
+2025-05-01 13:34:54,686 - INFO - Saved 3 rooms to Excel file
+2025-05-01 13:34:54,693 - INFO - Loaded 3 rooms from Excel file
+2025-05-01 13:34:54,709 - INFO - Loaded 3 rooms from Excel file
+2025-05-01 13:34:54,721 - INFO - Saved 3 rooms to Excel file
+2025-05-01 13:34:54,768 - INFO - Loaded 3 rooms from Excel file
+2025-05-01 13:34:54,782 - INFO - Loaded 3 rooms from Excel file
+2025-05-01 13:34:54,794 - INFO - Saved 3 rooms to Excel file
+2025-05-01 13:34:54,799 - INFO - Loaded 3 rooms from Excel file
+2025-05-01 13:34:54,800 - ERROR - Failed to open Excel file: [Errno 2] No such file or directory: 'nonexistent_file.xlsx'
+2025-05-01 13:34:54,801 - ERROR - Error loading data: Failed to open Excel file: [Errno 2] No such file or directory: 'nonexistent_file.xlsx'
+2025-05-01 13:34:54,813 - INFO - Loaded 3 rooms from Excel file
+2025-05-01 13:34:54,819 - ERROR - Failed to save Excel file: [Errno 13] Permission denied: 'test_key_distribution.xlsx'
+2025-05-01 13:34:54,819 - ERROR - Error saving data: Failed to save Excel file: [Errno 13] Permission denied: 'test_key_distribution.xlsx'
+2025-05-01 13:34:54,897 - INFO - Student John Doe is collecting a key for room 101
+2025-05-01 13:34:54,897 - INFO - Student John Doe collected a key for room 101
+2025-05-01 13:34:54,900 - INFO - Student John Doe is collecting a key for room 101
+2025-05-01 13:34:54,901 - INFO - Student John Doe collected a key for room 101
+2025-05-01 13:34:54,901 - INFO - Student John Doe is collecting a key for room 101
+2025-05-01 13:34:54,901 - INFO - Student John Doe collected a key for room 101
+2025-05-01 13:34:54,903 - INFO - Student John Doe is collecting a key for room 102
+2025-05-01 13:34:54,904 - WARNING - No keys available for room 102
+2025-05-01 13:34:54,908 - INFO - Student John Doe is collecting a key for room 999
+2025-05-01 13:34:54,910 - INFO - Student John Doe is collecting a key for room 101
+2025-05-01 13:34:54,910 - INFO - Student John Doe collected a key for room 101
+2025-05-01 13:34:54,911 - INFO - Student John Doe is returning a key for room 101
+2025-05-01 13:34:54,911 - INFO - Student John Doe returned a key for room 101
+2025-05-01 13:34:54,913 - INFO - Student Jane Smith is returning a key for room 101
+2025-05-01 13:34:54,913 - WARNING - No record of key collection for student Jane Smith in room 101
+2025-05-01 13:34:54,916 - INFO - Student John Doe is collecting a key for room 101
+2025-05-01 13:34:54,916 - INFO - Student John Doe collected a key for room 101
+2025-05-01 13:34:54,916 - INFO - Student John Doe is returning a key for room 101
+2025-05-01 13:34:54,917 - INFO - Student John Doe returned a key for room 101
+2025-05-01 13:34:54,917 - INFO - Student John Doe is returning a key for room 101
+2025-05-01 13:34:54,917 - WARNING - No record of key collection for student John Doe in room 101
+2025-05-01 13:34:54,920 - INFO - Student John Doe is returning a key for room 999
+2025-05-01 13:34:54,922 - INFO - Student John Doe is reporting a lost key for room 103
+2025-05-01 13:34:54,922 - INFO - Student John Doe reported a lost key for room 103
+2025-05-01 13:34:54,924 - INFO - Student John Doe is reporting a lost key for room 101
+2025-05-01 13:34:54,924 - WARNING - No record of key collection for student John Doe in room 101
+2025-05-01 13:34:54,926 - INFO - Student John Doe is reporting a lost key for room 999
+2025-05-01 13:34:54,928 - INFO - Student Jane Smith is borrowing a spare key for room 101
+2025-05-01 13:34:54,928 - INFO - Student Jane Smith borrowed a spare key for room 101
+2025-05-01 13:34:54,930 - INFO - Student Jane Smith is borrowing a spare key for room 102
+2025-05-01 13:34:54,931 - WARNING - No spare keys available for room 102
+2025-05-01 13:34:54,933 - INFO - Student Jane Smith is borrowing a spare key for room 999
+2025-05-01 13:34:54,935 - INFO - Student John Doe is collecting a key for room 101
+2025-05-01 13:34:54,936 - INFO - Student John Doe collected a key for room 101
+2025-05-01 13:34:54,936 - INFO - Student Jane Smith is collecting a key for room 101
+2025-05-01 13:34:54,936 - INFO - Student Jane Smith collected a key for room 101
+2025-05-01 13:34:54,936 - INFO - Student Bob Brown is collecting a key for room 101
+2025-05-01 13:34:54,936 - WARNING - No keys available for room 101
+2025-05-01 13:34:54,937 - INFO - Student John Doe is returning a key for room 101
+2025-05-01 13:34:54,937 - INFO - Student John Doe returned a key for room 101
+2025-05-01 13:34:54,937 - INFO - Student Bob Brown is collecting a key for room 101
+2025-05-01 13:34:54,937 - INFO - Student Bob Brown collected a key for room 101
+2025-05-01 13:36:30,154 - ERROR - Failed to open Excel file: [Errno 2] No such file or directory: 'nonexistent_file.xlsx'
+2025-05-01 13:36:30,213 - ERROR - Failed to save Excel file: Mock save error
+2025-05-01 13:36:30,360 - INFO - Loaded 0 rooms from Excel file
+2025-05-01 13:36:30,379 - INFO - Loaded 3 rooms from Excel file
+2025-05-01 13:36:30,412 - INFO - Loaded 3 rooms from Excel file
+2025-05-01 13:36:30,427 - INFO - Saved 3 rooms to Excel file
+2025-05-01 13:36:30,432 - INFO - Loaded 3 rooms from Excel file
+2025-05-01 13:36:30,447 - INFO - Loaded 3 rooms from Excel file
+2025-05-01 13:36:30,458 - INFO - Saved 3 rooms to Excel file
+2025-05-01 13:36:30,463 - INFO - Loaded 3 rooms from Excel file
+2025-05-01 13:36:30,480 - INFO - Loaded 3 rooms from Excel file
+2025-05-01 13:36:30,491 - INFO - Saved 3 rooms to Excel file
+2025-05-01 13:36:30,496 - INFO - Loaded 3 rooms from Excel file
+2025-05-01 13:36:30,498 - ERROR - Failed to open Excel file: [Errno 2] No such file or directory: 'nonexistent_file.xlsx'
+2025-05-01 13:36:30,498 - ERROR - Error loading data: Failed to open Excel file: [Errno 2] No such file or directory: 'nonexistent_file.xlsx'
+2025-05-01 13:36:30,513 - INFO - Loaded 3 rooms from Excel file
+2025-05-01 13:36:30,520 - ERROR - Failed to save Excel file: [Errno 13] Permission denied: 'test_key_distribution.xlsx'
+2025-05-01 13:36:30,520 - ERROR - Error saving data: Failed to save Excel file: [Errno 13] Permission denied: 'test_key_distribution.xlsx'
+2025-05-01 13:36:30,630 - INFO - Student John Doe is collecting a key for room 101
+2025-05-01 13:36:30,630 - INFO - Student John Doe collected a key for room 101
+2025-05-01 13:36:30,631 - INFO - Student John Doe is collecting a key for room 101
+2025-05-01 13:36:30,632 - INFO - Student John Doe collected a key for room 101
+2025-05-01 13:36:30,632 - INFO - Student John Doe is collecting a key for room 101
+2025-05-01 13:36:30,632 - INFO - Student John Doe collected a key for room 101
+2025-05-01 13:36:30,634 - INFO - Student John Doe is collecting a key for room 102
+2025-05-01 13:36:30,634 - WARNING - No keys available for room 102
+2025-05-01 13:36:30,636 - INFO - Student John Doe is collecting a key for room 999
+2025-05-01 13:36:30,638 - INFO - Student John Doe is collecting a key for room 101
+2025-05-01 13:36:30,638 - INFO - Student John Doe collected a key for room 101
+2025-05-01 13:36:30,638 - INFO - Student John Doe is returning a key for room 101
+2025-05-01 13:36:30,638 - INFO - Student John Doe returned a key for room 101
+2025-05-01 13:36:30,640 - INFO - Student Jane Smith is returning a key for room 101
+2025-05-01 13:36:30,640 - WARNING - No record of key collection for student Jane Smith in room 101
+2025-05-01 13:36:30,642 - INFO - Student John Doe is collecting a key for room 101
+2025-05-01 13:36:30,642 - INFO - Student John Doe collected a key for room 101
+2025-05-01 13:36:30,643 - INFO - Student John Doe is returning a key for room 101
+2025-05-01 13:36:30,643 - INFO - Student John Doe returned a key for room 101
+2025-05-01 13:36:30,643 - INFO - Student John Doe is returning a key for room 101
+2025-05-01 13:36:30,643 - WARNING - No record of key collection for student John Doe in room 101
+2025-05-01 13:36:30,645 - INFO - Student John Doe is returning a key for room 999
+2025-05-01 13:36:30,647 - INFO - Student John Doe is reporting a lost key for room 103
+2025-05-01 13:36:30,648 - INFO - Student John Doe reported a lost key for room 103
+2025-05-01 13:36:30,650 - INFO - Student John Doe is reporting a lost key for room 101
+2025-05-01 13:36:30,650 - WARNING - No record of key collection for student John Doe in room 101
+2025-05-01 13:36:30,651 - INFO - Student John Doe is reporting a lost key for room 999
+2025-05-01 13:36:30,653 - INFO - Student Jane Smith is borrowing a spare key for room 101
+2025-05-01 13:36:30,653 - INFO - Student Jane Smith borrowed a spare key for room 101
+2025-05-01 13:36:30,655 - INFO - Student Jane Smith is borrowing a spare key for room 102
+2025-05-01 13:36:30,656 - WARNING - No spare keys available for room 102
+2025-05-01 13:36:30,659 - INFO - Student Jane Smith is borrowing a spare key for room 999
+2025-05-01 13:36:30,661 - INFO - Student John Doe is collecting a key for room 101
+2025-05-01 13:36:30,661 - INFO - Student John Doe collected a key for room 101
+2025-05-01 13:36:30,662 - INFO - Student Jane Smith is collecting a key for room 101
+2025-05-01 13:36:30,662 - INFO - Student Jane Smith collected a key for room 101
+2025-05-01 13:36:30,662 - INFO - Student Bob Brown is collecting a key for room 101
+2025-05-01 13:36:30,662 - WARNING - No keys available for room 101
+2025-05-01 13:36:30,662 - INFO - Student John Doe is returning a key for room 101
+2025-05-01 13:36:30,662 - INFO - Student John Doe returned a key for room 101
+2025-05-01 13:36:30,663 - INFO - Student Bob Brown is collecting a key for room 101
+2025-05-01 13:36:30,663 - INFO - Student Bob Brown collected a key for room 101
+2025-05-01 13:37:26,517 - ERROR - Failed to open Excel file: [Errno 2] No such file or directory: 'nonexistent_file.xlsx'
+2025-05-01 13:37:26,580 - ERROR - Failed to save Excel file: Mock save error
+2025-05-01 13:37:26,690 - INFO - Loaded 0 rooms from Excel file
+2025-05-01 13:37:26,710 - INFO - Loaded 3 rooms from Excel file
+2025-05-01 13:37:26,732 - INFO - Loaded 3 rooms from Excel file
+2025-05-01 13:37:26,746 - INFO - Saved 3 rooms to Excel file
+2025-05-01 13:37:26,753 - INFO - Loaded 3 rooms from Excel file
+2025-05-01 13:37:26,772 - INFO - Loaded 3 rooms from Excel file
+2025-05-01 13:37:26,783 - INFO - Saved 3 rooms to Excel file
+2025-05-01 13:37:26,789 - INFO - Loaded 3 rooms from Excel file
+2025-05-01 13:37:26,803 - INFO - Loaded 3 rooms from Excel file
+2025-05-01 13:37:26,815 - INFO - Saved 3 rooms to Excel file
+2025-05-01 13:37:26,819 - INFO - Loaded 3 rooms from Excel file
+2025-05-01 13:37:26,822 - ERROR - Failed to open Excel file: [Errno 2] No such file or directory: 'nonexistent_file.xlsx'
+2025-05-01 13:37:26,822 - ERROR - Error loading data: Failed to open Excel file: [Errno 2] No such file or directory: 'nonexistent_file.xlsx'
+2025-05-01 13:37:26,835 - INFO - Loaded 3 rooms from Excel file
+2025-05-01 13:37:26,839 - ERROR - Failed to save Excel file: [Errno 13] Permission denied: 'test_key_distribution.xlsx'
+2025-05-01 13:37:26,839 - ERROR - Error saving data: Failed to save Excel file: [Errno 13] Permission denied: 'test_key_distribution.xlsx'
+2025-05-01 13:37:26,933 - INFO - Student John Doe is collecting a key for room 101
+2025-05-01 13:37:26,933 - INFO - Student John Doe collected a key for room 101
+2025-05-01 13:37:26,936 - INFO - Student John Doe is collecting a key for room 101
+2025-05-01 13:37:26,936 - INFO - Student John Doe collected a key for room 101
+2025-05-01 13:37:26,937 - INFO - Student John Doe is collecting a key for room 101
+2025-05-01 13:37:26,937 - INFO - Student John Doe collected a key for room 101
+2025-05-01 13:37:26,940 - INFO - Student John Doe is collecting a key for room 102
+2025-05-01 13:37:26,940 - WARNING - No keys available for room 102
+2025-05-01 13:37:26,950 - INFO - Student John Doe is collecting a key for room 999
+2025-05-01 13:37:26,953 - INFO - Student John Doe is collecting a key for room 101
+2025-05-01 13:37:26,953 - INFO - Student John Doe collected a key for room 101
+2025-05-01 13:37:26,953 - INFO - Student John Doe is returning a key for room 101
+2025-05-01 13:37:26,953 - INFO - Student John Doe returned a key for room 101
+2025-05-01 13:37:26,955 - INFO - Student Jane Smith is returning a key for room 101
+2025-05-01 13:37:26,955 - WARNING - No record of key collection for student Jane Smith in room 101
+2025-05-01 13:37:26,958 - INFO - Student John Doe is collecting a key for room 101
+2025-05-01 13:37:26,958 - INFO - Student John Doe collected a key for room 101
+2025-05-01 13:37:26,958 - INFO - Student John Doe is returning a key for room 101
+2025-05-01 13:37:26,959 - INFO - Student John Doe returned a key for room 101
+2025-05-01 13:37:26,959 - INFO - Student John Doe is returning a key for room 101
+2025-05-01 13:37:26,959 - WARNING - No record of key collection for student John Doe in room 101
+2025-05-01 13:37:26,962 - INFO - Student John Doe is returning a key for room 999
+2025-05-01 13:37:26,965 - INFO - Student John Doe is reporting a lost key for room 103
+2025-05-01 13:37:26,965 - INFO - Student John Doe reported a lost key for room 103
+2025-05-01 13:37:26,968 - INFO - Student John Doe is reporting a lost key for room 101
+2025-05-01 13:37:26,969 - WARNING - No record of key collection for student John Doe in room 101
+2025-05-01 13:37:26,971 - INFO - Student John Doe is reporting a lost key for room 999
+2025-05-01 13:37:26,973 - INFO - Student Jane Smith is borrowing a spare key for room 101
+2025-05-01 13:37:26,973 - INFO - Student Jane Smith borrowed a spare key for room 101
+2025-05-01 13:37:26,975 - INFO - Student Jane Smith is borrowing a spare key for room 102
+2025-05-01 13:37:26,975 - WARNING - No spare keys available for room 102
+2025-05-01 13:37:26,977 - INFO - Student Jane Smith is borrowing a spare key for room 999
+2025-05-01 13:37:26,980 - INFO - Student John Doe is collecting a key for room 101
+2025-05-01 13:37:26,980 - INFO - Student John Doe collected a key for room 101
+2025-05-01 13:37:26,980 - INFO - Student Jane Smith is collecting a key for room 101
+2025-05-01 13:37:26,980 - INFO - Student Jane Smith collected a key for room 101
+2025-05-01 13:37:26,981 - INFO - Student Bob Brown is collecting a key for room 101
+2025-05-01 13:37:26,981 - WARNING - No keys available for room 101
+2025-05-01 13:37:26,981 - INFO - Student John Doe is returning a key for room 101
+2025-05-01 13:37:26,981 - INFO - Student John Doe returned a key for room 101
+2025-05-01 13:37:26,981 - INFO - Student Bob Brown is collecting a key for room 101
+2025-05-01 13:37:26,981 - INFO - Student Bob Brown collected a key for room 101
+2025-05-01 14:44:20,096 - INFO - Loaded 100 rooms from Excel file
+2025-05-01 14:44:20,101 - INFO - Loaded 100 rooms from Excel file
+2025-05-01 14:44:20,104 - INFO - Loaded 100 rooms from Excel file
+2025-05-01 15:03:45,372 - INFO - Loaded 100 rooms from Excel file
+2025-05-01 15:03:45,384 - INFO - Loaded 100 rooms from Excel file
+2025-05-01 15:03:45,397 - ERROR - Error loading data: 'NoneType' object has no attribute 'cell'
+2025-05-01 15:08:02,717 - INFO - Loaded 100 rooms from Excel file
+2025-05-01 15:08:02,731 - INFO - Loaded 100 rooms from Excel file
+2025-05-01 15:08:02,733 - INFO - Loaded 100 rooms from Excel file
+2025-05-01 15:13:53,967 - INFO - Loaded 100 rooms from Excel file
+2025-05-01 15:13:53,970 - INFO - Loaded 100 rooms from Excel file
+2025-05-01 15:13:53,972 - INFO - Loaded 100 rooms from Excel file
+2025-05-01 16:22:50,698 - INFO - Loaded 100 rooms from Excel file
+2025-05-01 16:22:50,703 - ERROR - Error loading data: 'NoneType' object has no attribute 'cell'
+2025-05-01 16:22:50,704 - ERROR - Error loading data: 'NoneType' object has no attribute 'cell'
+2025-05-01 16:25:52,839 - INFO - Loaded 100 rooms from Excel file
+2025-05-01 16:25:52,862 - INFO - Loaded 100 rooms from Excel file
+2025-05-01 16:25:52,895 - INFO - Loaded 100 rooms from Excel file
+2025-05-01 16:39:01,311 - INFO - Loaded 100 rooms from Excel file
+2025-05-01 16:39:01,315 - INFO - Loaded 100 rooms from Excel file
+2025-05-01 16:39:01,327 - INFO - Loaded 100 rooms from Excel file
+2025-05-01 16:51:45,122 - INFO - Student Daniel is collecting a key for room Room%20105

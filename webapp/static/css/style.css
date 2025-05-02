@@ -1,0 +1,51 @@
+/* KeyTrack custom styles - University of Chicago maroon theme */
+
+:root {
+  --maroon: #800000;
+  --maroon-dark: #600000;
+  --maroon-light: #a05050;
+}
+
+/* Override Bootstrap primary color with maroon */
+.text-primary {
+  color: var(--maroon) !important;
+}
+
+.bg-primary {
+  background-color: var(--maroon) !important;
+}
+
+.btn-primary {
+  background-color: var(--maroon) !important;
+  border-color: var(--maroon) !important;
+}
+
+.btn-primary:hover, .btn-primary:focus, .btn-primary:active {
+  background-color: var(--maroon-dark) !important;
+  border-color: var(--maroon-dark) !important;
+}
+
+.btn-outline-primary {
+  color: var(--maroon) !important;
+  border-color: var(--maroon) !important;
+}
+
+.btn-outline-primary:hover, .btn-outline-primary:focus, .btn-outline-primary:active {
+  background-color: var(--maroon) !important;
+  color: white !important;
+}
+
+/* Add maroon badge style for the default info badges */
+.bg-maroon {
+  background-color: var(--maroon) !important;
+  color: white !important;
+}
+
+.nav-link.active {
+  color: var(--maroon) !important;
+}
+
+/* Chart container height */
+.chart-container {
+  height: 300px;
+}

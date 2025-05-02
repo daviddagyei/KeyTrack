@@ -1,0 +1,62 @@
+{% extends 'base.html' %}
+
+{% block title %}Student Lookup{% endblock %}
+
+{% block content %}
+<div class="row mb-4">
+    <div class="col">
+        <h1>Student Key History</h1>
+        <p class="lead">Look up a student's key collection history</p>
+    </div>
+</div>
+
+<div class="row mb-4">
+    <div class="col-md-8 mx-auto">
+        <div class="card shadow-sm">
+            <div class="card-body">
+                <form id="studentSearchForm" class="mb-4">
+                    <div class="input-group mb-3">
+                        <input type="text" class="form-control" placeholder="Enter student name" id="studentName" required>
+                        <button class="btn btn-primary" type="submit">
+                            <i class="bi bi-search me-1"></i> Search
+                        </button>
+                    </div>
+                </form>
+                
+                <div id="studentLoading" class="text-center py-5 d-none">
+                    <div class="spinner-border text-primary" role="status">
+                        <span class="visually-hidden">Loading...</span>
+                    </div>
+                </div>
+                
+                <div id="studentResults" class="d-none">
+                    <h3 class="mb-4">Results for <span id="studentNameDisplay"></span></h3>
+                    
+                    <div class="table-responsive">
+                        <table class="table table-striped">
+                            <thead>
+                                <tr>
+                                    <th>Room</th>
+                                    <th>Action</th>
+                                    <th>Time</th>
+                                </tr>
+                            </thead>
+                            <tbody id="studentHistoryTable">
+                                <!-- Student history will be populated here -->
+                            </tbody>
+                        </table>
+                    </div>
+                    
+                    <div id="noResults" class="alert alert-info d-none">
+                        No history found for this student.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block extra_js %}
+<script src="{{ url_for('static', filename='js/student.js') }}"></script>
+{% endblock %}
