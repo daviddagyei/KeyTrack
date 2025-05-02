@@ -50,3 +50,8 @@ class KeyManagementService(ABC):
     def borrow_spare_key(self, room_id: str, student_name: str) -> bool:
         """Handle borrowing of a spare key for a room by a student."""
         pass
+        
+    @abstractmethod
+    def return_borrowed_key(self, room_id: str, student_name: str) -> bool:
+        """Handle return of a borrowed key for a room by a student."""
+        pass

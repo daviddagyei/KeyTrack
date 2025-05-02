@@ -5,10 +5,30 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // Refresh data every 60 seconds
     setInterval(loadDashboardData, 60000);
+    
+    // Set up room search functionality
+    setupRoomSearch();
 });
 
-// Maroon color for University of Chicago theme
-const MAROON = '#800000';
+// UChicago color scheme with transparent maroon variants
+const COLORS = {
+    maroon: 'rgba(128, 0, 0, 0.8)',       // Phoenix Maroon with transparency
+    maroonDark: 'rgba(96, 0, 0, 0.8)',     // Phoenix Maroon Dark with transparency
+    maroonLight: 'rgba(154, 0, 0, 0.7)',   // Phoenix Maroon Light with transparency
+    greystone: '#D9D9D9',    // Light Greystone
+    greystoneDark: '#737373',// Dark Greystone
+    footerGrey: '#404040',   // Footer Grey
+    goldenrod: '#F3D03E',    // Light Goldenrod
+    terracotta: '#ECA154',   // Light Terracotta
+    brick: '#B46A55',        // Light Brick
+    ivy: '#A9C47F',          // Light Ivy
+    forest: '#9CAF88',       // Light Forest
+    lake: 'rgba(62, 177, 200, 0.8)',         // Light Lake with transparency
+    violet: '#86647A'        // Light Violet
+};
+
+// Store all rooms data globally so we can filter without re-fetching
+let allRoomsData = [];
 
 // Main function to load all dashboard data
 function loadDashboardData() {
@@ -58,7 +78,7 @@ function renderAvailableKeysChart(data) {
             labels: ['Available', 'In Use'],
             datasets: [{
                 data: [data.available_keys, data.keys_out],
-                backgroundColor: ['#28a745', '#17a2b8'],
+                backgroundColor: [COLORS.ivy, COLORS.lake],
                 borderWidth: 1
             }]
         },
@@ -86,20 +106,18 @@ function renderKeyStatusChart(data) {
     window.keyStatusChart = new Chart(ctx, {
         type: 'bar',
         data: {
-            labels: ['Borrowed', 'Lost', 'Damaged', 'Available'],
+            labels: ['Borrowed', 'Lost', 'Available'],
             datasets: [{
                 label: 'Key Count',
                 data: [
                     data.keys_borrowed || 0,
                     data.keys_lost || 0,
-                    data.keys_damaged || 0,
                     data.available_keys || 0
                 ],
                 backgroundColor: [
-                    '#ffc107',  // Borrowed - warning
-                    '#dc3545',  // Lost - danger
-                    '#fd7e14',  // Damaged - orange
-                    '#28a745'   // Available - success
+                    COLORS.goldenrod,  // Borrowed - light goldenrod
+                    COLORS.maroonLight,  // Lost - phoenix maroon light with transparency
+                    COLORS.ivy   // Available - light ivy
                 ],
                 borderWidth: 1
             }]
@@ -126,7 +144,14 @@ function fetchRoomsOverview() {
     fetch('/api/rooms/overview')
         .then(response => response.json())
         .then(data => {
-            renderRoomsTable(data);
+            // Store the complete rooms data for filtering
+            allRoomsData = data;
+            
+            // Get the current search term
+            const searchTerm = document.getElementById('roomSearchInput').value.trim().toLowerCase();
+            
+            // Render the table with appropriate filtering
+            renderRoomsTable(data, searchTerm);
         })
         .catch(error => {
             console.error('Error fetching rooms overview:', error);
@@ -136,16 +161,41 @@ function fetchRoomsOverview() {
 }
 
 // Render the rooms table
-function renderRoomsTable(data) {
+function renderRoomsTable(data, searchTerm = '') {
     const tableBody = document.getElementById('rooms-table');
     
     if (data.length === 0) {
-        tableBody.innerHTML = '<tr><td colspan="7" class="text-center">No rooms found</td></tr>';
+        tableBody.innerHTML = searchTerm 
+            ? '<tr><td colspan="7" class="text-center">No rooms matching "' + searchTerm + '" found</td></tr>'
+            : '<tr><td colspan="7" class="text-center">No rooms found</td></tr>';
         return;
     }
     
     let html = '';
-    data.forEach(room => {
+    let roomsToDisplay = data;
+    
+    if (searchTerm) {
+        // If searching, filter the rooms
+        roomsToDisplay = data.filter(room => {
+            const roomId = String(room.room_id).toLowerCase();
+            return roomId.includes(searchTerm);
+        });
+        
+        // Check if any rooms match the search
+        if (roomsToDisplay.length === 0) {
+            tableBody.innerHTML = '<tr><td colspan="7" class="text-center">No rooms matching "' + searchTerm + '" found</td></tr>';
+            return;
+        }
+    } else {
+        // If not searching, limit to 10 rooms
+        roomsToDisplay = data.slice(0, 10);
+    }
+    
+    // Generate the HTML for each room row
+    roomsToDisplay.forEach(room => {
+        // Properly encode the room_id for the URL to prevent issues with spaces or special characters
+        const encodedRoomId = encodeURIComponent(room.room_id);
+        
         html += `
             <tr>
                 <td>${room.room_id}</td>
@@ -155,11 +205,31 @@ function renderRoomsTable(data) {
                 <td>${room.lost_keys}</td>
                 <td>${room.borrowed_keys}</td>
                 <td>
-                    <a href="/room/${room.room_id}" class="btn btn-sm btn-primary">Details</a>
+                    <a href="/room/${encodedRoomId}" class="btn btn-sm btn-primary">Details</a>
                 </td>
             </tr>
         `;
     });
+    
+    // Add a summary row if not in search mode and there are more than 10 rooms
+    if (!searchTerm && data.length > 10) {
+        html += `
+            <tr>
+                <td colspan="7" class="text-center text-muted">
+                    Showing 10 of ${data.length} rooms. Use the search to find specific rooms.
+                </td>
+            </tr>
+        `;
+    } else if (searchTerm) {
+        // If in search mode, show how many results were found
+        html += `
+            <tr>
+                <td colspan="7" class="text-center text-muted">
+                    Found ${roomsToDisplay.length} room(s) matching "${searchTerm}".
+                </td>
+            </tr>
+        `;
+    }
     
     tableBody.innerHTML = html;
 }
@@ -189,7 +259,7 @@ function renderRecentActivity(data) {
     
     let html = '';
     data.forEach(activity => {
-        let badgeClass = 'bg-maroon'; // Changed from bg-info to bg-maroon
+        let badgeClass = 'bg-maroon';
         if (activity.action === 'borrowed') badgeClass = 'bg-warning';
         if (activity.action === 'returned') badgeClass = 'bg-success';
         if (activity.action === 'lost') badgeClass = 'bg-danger';
@@ -207,4 +277,25 @@ function renderRecentActivity(data) {
     });
     
     activityList.innerHTML = html;
+}
+
+// Set up the search functionality
+function setupRoomSearch() {
+    const searchInput = document.getElementById('roomSearchInput');
+    const clearButton = document.getElementById('clearSearchButton');
+    
+    searchInput.addEventListener('input', function() {
+        const searchTerm = this.value.trim().toLowerCase();
+        filterRooms(searchTerm);
+    });
+    
+    clearButton.addEventListener('click', function() {
+        searchInput.value = '';
+        filterRooms('');
+    });
+}
+
+// Filter rooms based on search term
+function filterRooms(searchTerm) {
+    renderRoomsTable(allRoomsData, searchTerm);
 }

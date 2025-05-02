@@ -16,10 +16,16 @@
             <div class="card-body">
                 <form id="studentSearchForm" class="mb-4">
                     <div class="input-group mb-3">
-                        <input type="text" class="form-control" placeholder="Enter student name" id="studentName" required>
+                        <input type="text" class="form-control" placeholder="Enter student name" id="studentName" required autocomplete="off">
                         <button class="btn btn-primary" type="submit">
                             <i class="bi bi-search me-1"></i> Search
                         </button>
+                    </div>
+                    <!-- Add suggestions dropdown container -->
+                    <div id="suggestionContainer" class="position-relative">
+                        <ul id="studentSuggestions" class="list-group position-absolute w-100 shadow-sm" style="z-index: 1000; max-height: 200px; overflow-y: auto; display: none;">
+                            <!-- Suggestions will be populated here -->
+                        </ul>
                     </div>
                 </form>
                 

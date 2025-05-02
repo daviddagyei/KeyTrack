@@ -63,28 +63,45 @@ class DefaultKeyManagementService(KeyManagementService):
         return self._save_data()
     
     def return_key(self, room_id: str, student_name: str) -> bool:
-        """Handle key return for a room by a student."""
+        """Handle key return for a room by a student.
+        
+        This now handles both returning collected keys and borrowed keys.
+        """
         logger.info(f"Student {student_name} is returning a key for room {room_id}")
         
         room = self._get_room(room_id)
         
-        # Check if the student has collected a key
-        if not room.has_key(student_name):
-            logger.warning(f"No record of key collection for student {student_name} in room {room_id}")
-            raise KeyNotCollectedException(room_id, student_name)
-        
-        # Find the collected key action
+        # First check if the student has collected a key
+        has_collected = False
         for i, action in enumerate(room.collected_actions):
             if action.student.name == student_name:
+                has_collected = True
                 # Create a return action
                 return_action = self._create_key_action(student_name)
                 room.returned_actions.append(return_action)
                 
-                logger.info(f"Student {student_name} returned a key for room {room_id}")
+                logger.info(f"Student {student_name} returned a collected key for room {room_id}")
                 return self._save_data()
         
-        # This should not happen if has_key is working correctly
-        logger.error(f"Failed to find key collection record for student {student_name} in room {room_id}")
+        # If no collected key found, check for borrowed keys
+        if not has_collected:
+            has_borrowed = False
+            for i, action in enumerate(room.borrowed_actions):
+                if action.student.name == student_name:
+                    has_borrowed = True
+                    # Create a return action
+                    return_action = self._create_key_action(student_name)
+                    room.returned_actions.append(return_action)
+                    
+                    logger.info(f"Student {student_name} returned a borrowed key for room {room_id}")
+                    return self._save_data()
+            
+            if not has_borrowed:
+                logger.warning(f"No record of key collection or borrowing for student {student_name} in room {room_id}")
+                raise KeyNotCollectedException(room_id, student_name)
+        
+        # This should not happen if the above checks are working correctly
+        logger.error(f"Failed to process key return for student {student_name} in room {room_id}")
         raise KeyNotCollectedException(room_id, student_name)
     
     def report_lost_key(self, room_id: str, student_name: str) -> bool:
@@ -104,6 +121,9 @@ class DefaultKeyManagementService(KeyManagementService):
                 # Create a lost key action
                 lost_action = self._create_key_action(student_name)
                 room.lost_actions.append(lost_action)
+                
+                # Decrease the total number of keys since the key is permanently lost
+                room.total_keys -= 1
                 
                 logger.info(f"Student {student_name} reported a lost key for room {room_id}")
                 return self._save_data()
@@ -128,6 +148,14 @@ class DefaultKeyManagementService(KeyManagementService):
         
         logger.info(f"Student {student_name} borrowed a spare key for room {room_id}")
         return self._save_data()
+    
+    def return_borrowed_key(self, room_id: str, student_name: str) -> bool:
+        """Handle return of a borrowed key for a room by a student.
+        
+        For consistency, this now uses the unified return_key method.
+        """
+        # Delegate to the generalized return_key method
+        return self.return_key(room_id, student_name)
     
     def get_all_rooms_data(self) -> Dict[str, Dict[str, Any]]:
         """Get formatted data for all rooms.

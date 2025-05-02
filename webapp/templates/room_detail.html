@@ -55,6 +55,7 @@
                     </button>
                     <button class="btn btn-success" data-bs-toggle="modal" data-bs-target="#returnKeyModal">
                         <i class="bi bi-arrow-return-left me-1"></i> Return Key
+                        <small class="text-light">(any type)</small>
                     </button>
                     <button class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#lostKeyModal">
                         <i class="bi bi-exclamation-triangle me-1"></i> Report Lost Key
@@ -212,6 +213,31 @@
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
                 <button type="button" class="btn btn-warning" id="borrowKeyButton">Borrow Key</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Return Borrowed Key Modal -->
+<div class="modal fade" id="returnBorrowedKeyModal" tabindex="-1" aria-labelledby="returnBorrowedKeyModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="returnBorrowedKeyModalLabel">Return Borrowed Key</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form id="returnBorrowedKeyForm">
+                    <div class="mb-3">
+                        <label for="returnBorrowedStudentName" class="form-label">Student Name</label>
+                        <input type="text" class="form-control" id="returnBorrowedStudentName" required>
+                    </div>
+                </form>
+                <div class="alert alert-danger d-none" id="returnBorrowedKeyError"></div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                <button type="button" class="btn btn-info" id="returnBorrowedKeyButton">Return Borrowed Key</button>
             </div>
         </div>
     </div>

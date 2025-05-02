@@ -47,12 +47,17 @@ class Room(Entity):
     
     @property
     def available_keys(self) -> int:
-        """Calculate the number of available keys."""
+        """Calculate the number of available keys.
+        
+        Available keys = Total keys - (collected - returned + borrowed)
+        Note: Lost keys are already accounted for in total_keys (total is decreased when a key is reported lost)
+        """
         collected = len(self.collected_actions)
         returned = len(self.returned_actions)
-        lost = len(self.lost_actions)
-        # Total keys minus currently out (collected-returned) minus lost
-        return self.total_keys - (collected - returned) - lost
+        borrowed = len(self.borrowed_actions)
+        
+        # Total keys minus currently out keys (collected minus returned plus borrowed)
+        return self.total_keys - ((collected - returned) + borrowed)
     
     def has_key(self, student_name: str) -> bool:
         """Check if a student has a key for this room.

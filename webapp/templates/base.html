@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{% block title %}KeyTrack{% endblock %}</title>
+    <title>{% block title %}KeyTrack{% endblock %} | University of Chicago</title>
     
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -11,52 +11,83 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css" rel="stylesheet">
     <!-- Custom styles -->
     <link href="{{ url_for('static', filename='css/style.css') }}" rel="stylesheet">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
     {% block extra_css %}{% endblock %}
 </head>
 <body>
     <div class="container-fluid">
-        <div class="row">
+        <div class="row g-0">
             <!-- Sidebar -->
-            <div class="col-md-3 col-lg-2 d-md-block bg-light sidebar collapse">
-                <div class="position-sticky pt-3">
-                    <div class="mb-4 px-3">
-                        <h3 class="fw-bold text-primary">KeyTrack</h3>
+            <div class="col-md-3 col-lg-2 sidebar d-md-block collapse">
+                <div class="position-sticky pt-4">
+                    <div class="mb-4 px-3 d-flex align-items-center">
+                        <i class="bi bi-key-fill fs-2 me-2"></i>
+                        <h3 class="fw-bold mb-0">KeyTrack</h3>
                     </div>
                     <ul class="nav flex-column">
-                        <li class="nav-item">
-                            <a class="nav-link {% if request.path == '/' %}active{% endif %}" href="/">
+                        <li class="nav-item mb-1">
+                            <a class="nav-link ps-3 py-3 {% if request.path == '/' %}active{% endif %}" href="/">
                                 <i class="bi bi-speedometer2 me-2"></i>
                                 Dashboard
                             </a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link {% if '/actions' in request.path %}active{% endif %}" href="/actions">
+                        <li class="nav-item mb-1">
+                            <a class="nav-link ps-3 py-3 {% if '/actions' in request.path %}active{% endif %}" href="/actions">
                                 <i class="bi bi-key me-2"></i>
                                 Key Actions
                             </a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link {% if '/student' in request.path %}active{% endif %}" href="/student">
+                        <li class="nav-item mb-1">
+                            <a class="nav-link ps-3 py-3 {% if '/student' in request.path %}active{% endif %}" href="/student">
                                 <i class="bi bi-person me-2"></i>
                                 Student Lookup
                             </a>
                         </li>
+                        <li class="nav-item mb-1">
+                            <a class="nav-link ps-3 py-3 {% if '/excel' in request.path %}active{% endif %}" href="/excel">
+                                <i class="bi bi-file-earmark-excel me-2"></i>
+                                Excel Management
+                            </a>
+                        </li>
                     </ul>
+                    
+                    <div class="mt-5 px-3 pb-3">
+                        <div class="small text-white-50">
+                            <p>University of Chicago<br>Housing & Residence Life</p>
+                        </div>
+                    </div>
                 </div>
             </div>
 
             <!-- Main content -->
-            <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
-                <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-3 border-bottom">
-                    <button class="navbar-toggler d-md-none collapsed" type="button" 
+            <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4 d-flex flex-column">
+                <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pt-3 pb-2 mb-4">
+                    <button class="navbar-toggler d-md-none collapsed btn btn-sm btn-outline-primary" type="button" 
                             data-bs-toggle="collapse" data-bs-target=".sidebar">
-                        <i class="bi bi-list"></i>
+                        <i class="bi bi-list"></i> Menu
                     </button>
+                    
+                    <div class="d-flex align-items-center">
+                        <span class="badge bg-maroon me-2">UChicago</span>
+                        <h5 class="mb-0 text-primary">{% block header_title %}KeyTrack{% endblock %}</h5>
+                    </div>
                 </div>
 
-                <div class="container">
+                <div class="container-fluid px-0 content-wrapper">
                     {% block content %}{% endblock %}
                 </div>
+                
+                <!-- Footer -->
+                <footer class="mt-auto py-3">
+                    <div class="container-fluid">
+                        <div class="row">
+                            <div class="col-12">
+                                <p class="small text-center mb-0">&copy; {{ now.year }} University of Chicago. All rights reserved.</p>
+                            </div>
+                        </div>
+                    </div>
+                </footer>
             </main>
         </div>
     </div>

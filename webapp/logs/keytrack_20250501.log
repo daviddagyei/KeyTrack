@@ -1,0 +1,77 @@
+2025-05-01 21:16:58,539 - INFO - Loaded 100 rooms from Excel file
+2025-05-01 21:16:58,543 - INFO - Loaded 100 rooms from Excel file
+2025-05-01 21:16:58,556 - ERROR - Error loading data: 'NoneType' object has no attribute 'cell'
+2025-05-01 23:05:30,673 - INFO - Loaded 100 rooms from Excel file
+2025-05-01 23:05:30,677 - INFO - Loaded 100 rooms from Excel file
+2025-05-01 23:05:30,681 - INFO - Loaded 100 rooms from Excel file
+2025-05-01 23:13:19,957 - INFO - Loaded 100 rooms from Excel file
+2025-05-01 23:13:19,969 - ERROR - Error loading data: 'NoneType' object has no attribute 'cell'
+2025-05-01 23:13:19,992 - INFO - Loaded 100 rooms from Excel file
+2025-05-01 23:13:50,595 - INFO - Loaded 100 rooms from Excel file
+2025-05-01 23:13:50,596 - INFO - Loaded 100 rooms from Excel file
+2025-05-01 23:13:50,615 - INFO - Loaded 100 rooms from Excel file
+2025-05-01 23:15:13,654 - INFO - Loaded 100 rooms from Excel file
+2025-05-01 23:15:13,680 - INFO - Loaded 100 rooms from Excel file
+2025-05-01 23:15:13,680 - INFO - Loaded 100 rooms from Excel file
+2025-05-01 23:16:57,242 - INFO - Student David Agyei is collecting a key for room 101
+2025-05-01 23:17:49,516 - INFO - Student David Agyei is collecting a key for room Room 101
+2025-05-01 23:17:58,122 - INFO - Student David Agyei is collecting a key for room 101
+2025-05-01 23:20:37,777 - INFO - Student David Agyei is collecting a key for room 101 
+2025-05-01 23:21:32,551 - INFO - Student David Agyei is collecting a key for room room 101 
+2025-05-01 23:21:39,485 - INFO - Student David Agyei is collecting a key for room Room 101 
+2025-05-01 23:25:52,349 - INFO - Loaded 100 rooms from Excel file
+2025-05-01 23:26:03,552 - INFO - Student David Agyei is collecting a key for room 101 
+2025-05-01 23:26:29,864 - INFO - Loaded 100 rooms from Excel file
+2025-05-01 23:26:29,883 - INFO - Loaded 100 rooms from Excel file
+2025-05-01 23:26:29,908 - INFO - Loaded 100 rooms from Excel file
+2025-05-01 23:26:36,767 - INFO - Student David Agyei is collecting a key for room 101 
+2025-05-01 23:52:50,507 - INFO - Loaded 100 rooms from Excel file
+2025-05-01 23:52:50,509 - INFO - Loaded 100 rooms from Excel file
+2025-05-01 23:52:50,509 - INFO - Loaded 100 rooms from Excel file
+2025-05-01 23:53:14,471 - INFO - Student David Agyei is collecting a key for room 101
+2025-05-01 23:53:14,471 - INFO - Student David Agyei collected a key for room 101
+2025-05-01 23:53:14,503 - INFO - Saved 100 rooms to Excel file
+2025-05-01 23:53:20,646 - INFO - Student David Agyei is collecting a key for room 101
+2025-05-01 23:53:20,646 - INFO - Student David Agyei collected a key for room 101
+2025-05-01 23:53:20,672 - INFO - Saved 100 rooms to Excel file
+2025-05-01 23:53:27,138 - INFO - Student David Agyei is collecting a key for room 101
+2025-05-01 23:53:27,138 - INFO - Student David Agyei collected a key for room 101
+2025-05-01 23:53:27,171 - INFO - Saved 100 rooms to Excel file
+2025-05-01 23:53:34,996 - INFO - Student David Agyei is collecting a key for room 101
+2025-05-01 23:53:34,996 - INFO - Student David Agyei collected a key for room 101
+2025-05-01 23:53:35,029 - INFO - Saved 100 rooms to Excel file
+2025-05-01 23:53:41,139 - INFO - Student David Agyei is collecting a key for room 101
+2025-05-01 23:53:41,140 - WARNING - No keys available for room 101
+2025-05-01 23:54:00,900 - INFO - Student David Agyei is borrowing a spare key for room 101
+2025-05-01 23:54:00,900 - WARNING - No spare keys available for room 101
+2025-05-01 23:54:36,828 - INFO - Student Alice is returning a key for room 101
+2025-05-01 23:54:36,828 - WARNING - No record of key collection for student Alice in room 101
+2025-05-01 23:54:50,336 - INFO - Loaded 100 rooms from Excel file
+2025-05-01 23:54:50,338 - INFO - Loaded 100 rooms from Excel file
+2025-05-01 23:54:50,341 - INFO - Loaded 100 rooms from Excel file
+2025-05-01 23:57:05,079 - INFO - Student David Agyei is collecting a key for room 101
+2025-05-01 23:57:05,079 - WARNING - No keys available for room 101
+2025-05-02 00:01:06,212 - INFO - Student David Agyei is returning a borrowed key for room 101
+2025-05-02 00:01:06,213 - WARNING - No record of borrowed key for student David Agyei in room 101
+2025-05-02 00:01:32,967 - INFO - Student David Agyei is returning a key for room 101
+2025-05-02 00:01:32,967 - INFO - Student David Agyei returned a key for room 101
+2025-05-02 00:01:33,006 - INFO - Saved 100 rooms to Excel file
+2025-05-02 00:01:39,621 - INFO - Student David Agyei is returning a key for room 101
+2025-05-02 00:01:39,621 - INFO - Student David Agyei returned a key for room 101
+2025-05-02 00:01:39,657 - INFO - Saved 100 rooms to Excel file
+2025-05-02 00:02:55,458 - INFO - Student Alice is returning a key for room 101
+2025-05-02 00:02:55,458 - WARNING - No record of key collection for student Alice in room 101
+2025-05-02 00:03:08,716 - INFO - Student David Agyei is returning a key for room 101
+2025-05-02 00:03:08,717 - INFO - Student David Agyei returned a key for room 101
+2025-05-02 00:03:08,743 - INFO - Saved 100 rooms to Excel file
+2025-05-02 00:03:15,602 - INFO - Student David Agyei is returning a key for room 101
+2025-05-02 00:03:15,602 - INFO - Student David Agyei returned a key for room 101
+2025-05-02 00:03:15,643 - INFO - Saved 100 rooms to Excel file
+2025-05-02 00:03:22,771 - INFO - Student David Agyei is returning a key for room 101
+2025-05-02 00:03:22,772 - INFO - Student David Agyei returned a key for room 101
+2025-05-02 00:03:22,805 - INFO - Saved 100 rooms to Excel file
+2025-05-02 00:03:28,377 - INFO - Student David Agyei is returning a key for room 101
+2025-05-02 00:03:28,377 - WARNING - No record of key collection for student David Agyei in room 101
+2025-05-02 00:04:06,816 - INFO - Student Alice is collecting a key for room 101
+2025-05-02 00:04:06,816 - INFO - Student Alice collected a key for room 101
+2025-05-02 00:04:06,855 - INFO - Saved 100 rooms to Excel file

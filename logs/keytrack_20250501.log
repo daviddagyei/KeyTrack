@@ -289,3 +289,59 @@
 2025-05-01 16:39:01,315 - INFO - Loaded 100 rooms from Excel file
 2025-05-01 16:39:01,327 - INFO - Loaded 100 rooms from Excel file
 2025-05-01 16:51:45,122 - INFO - Student Daniel is collecting a key for room Room%20105
+2025-05-01 20:29:04,514 - INFO - Student David Agyei is collecting a key for room Room 101
+2025-05-01 20:29:04,517 - WARNING - No keys available for room Room 101
+2025-05-01 20:29:13,051 - INFO - Student David Agyei is collecting a key for room Room 105
+2025-05-01 20:29:13,052 - INFO - Student David Agyei collected a key for room Room 105
+2025-05-01 20:29:13,100 - INFO - Saved 100 rooms to Excel file
+2025-05-01 20:30:58,473 - INFO - Student David Agyei is returning a key for room Room%20101
+2025-05-01 20:31:23,231 - INFO - Student David Agyei is borrowing a spare key for room Room%20101
+2025-05-01 20:31:42,777 - INFO - Student David Agyei is returning a key for room Room 101
+2025-05-01 20:31:42,779 - INFO - Student David Agyei returned a key for room Room 101
+2025-05-01 20:31:42,828 - INFO - Saved 100 rooms to Excel file
+2025-05-01 20:31:50,779 - INFO - Student David Agyei is returning a key for room Room 101
+2025-05-01 20:31:50,779 - INFO - Student David Agyei returned a key for room Room 101
+2025-05-01 20:31:50,812 - INFO - Saved 100 rooms to Excel file
+2025-05-01 20:31:57,448 - INFO - Student David Agyei is returning a key for room Room 101
+2025-05-01 20:31:57,449 - INFO - Student David Agyei returned a key for room Room 101
+2025-05-01 20:31:57,485 - INFO - Saved 100 rooms to Excel file
+2025-05-01 20:32:47,898 - INFO - Student David Agyei is returning a key for room Room 101
+2025-05-01 20:32:47,898 - INFO - Student David Agyei returned a key for room Room 101
+2025-05-01 20:32:47,943 - INFO - Saved 100 rooms to Excel file
+2025-05-01 20:32:54,457 - INFO - Student David Agyei is returning a key for room Room 101
+2025-05-01 20:32:54,458 - WARNING - No record of key collection for student David Agyei in room Room 101
+2025-05-01 20:41:10,300 - INFO - Loaded 100 rooms from Excel file
+2025-05-01 20:41:10,304 - ERROR - Error loading data: 'NoneType' object has no attribute 'cell'
+2025-05-01 20:41:10,327 - INFO - Loaded 100 rooms from Excel file
+2025-05-01 20:45:34,693 - INFO - Student David Agyei is collecting a key for room Room 101
+2025-05-01 20:45:34,725 - INFO - Loaded 100 rooms from Excel file
+2025-05-01 20:45:34,725 - WARNING - No keys available for room Room 101
+2025-05-01 20:45:51,398 - INFO - Student David Agyei is returning a key for room Room 101
+2025-05-01 20:45:51,399 - WARNING - No record of key collection for student David Agyei in room Room 101
+2025-05-01 20:49:04,127 - INFO - Student David Agyei is returning a key for room Room 103
+2025-05-01 20:49:04,129 - INFO - Student David Agyei returned a key for room Room 103
+2025-05-01 20:49:04,177 - INFO - Saved 100 rooms to Excel file
+2025-05-01 20:49:51,906 - INFO - Student Alice is returning a key for room Room 103
+2025-05-01 20:49:51,907 - WARNING - No record of key collection for student Alice in room Room 103
+2025-05-01 20:50:41,755 - INFO - Student David Agyei is returning a key for room Room 105
+2025-05-01 20:50:41,755 - INFO - Student David Agyei returned a key for room Room 105
+2025-05-01 20:50:41,815 - INFO - Saved 100 rooms to Excel file
+2025-05-01 23:31:48,163 - INFO - Loaded 100 rooms from Excel file
+2025-05-01 23:31:48,174 - INFO - Loaded 100 rooms from Excel file
+2025-05-01 23:31:48,182 - INFO - Loaded 100 rooms from Excel file
+2025-05-01 23:32:00,059 - INFO - Student David Agyei is collecting a key for room 101
+2025-05-01 23:33:50,906 - INFO - Loaded 100 rooms from Excel file
+2025-05-01 23:33:50,921 - INFO - Loaded 100 rooms from Excel file
+2025-05-01 23:33:50,924 - INFO - Loaded 100 rooms from Excel file
+2025-05-01 23:46:04,337 - INFO - Student David Agyei is collecting a key for room 101
+2025-05-01 23:46:04,338 - INFO - Student David Agyei collected a key for room 101
+2025-05-01 23:46:04,372 - INFO - Saved 100 rooms to Excel file
+2025-05-01 23:46:50,966 - INFO - Loaded 100 rooms from Excel file
+2025-05-01 23:46:50,969 - INFO - Loaded 100 rooms from Excel file
+2025-05-01 23:46:50,983 - INFO - Loaded 100 rooms from Excel file
+2025-05-01 23:49:29,676 - INFO - Loaded 100 rooms from Excel file
+2025-05-01 23:49:29,683 - INFO - Loaded 100 rooms from Excel file
+2025-05-01 23:49:29,695 - INFO - Loaded 100 rooms from Excel file
+2025-05-01 23:51:50,584 - INFO - Loaded 100 rooms from Excel file
+2025-05-01 23:51:50,600 - INFO - Loaded 100 rooms from Excel file
+2025-05-01 23:51:50,612 - INFO - Loaded 100 rooms from Excel file

@@ -1,0 +1,412 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container-fluid">
+    <h1 class="mt-4">Excel Data Management</h1>
+    <p class="lead">Download, upload, and manage the Excel data files that power KeyTrack.</p>
+    
+    <div class="row mt-4">
+        <!-- Upload Section -->
+        <div class="col-md-6 mb-4">
+            <div class="card">
+                <div class="card-header bg-success text-white">
+                    <h5 class="mb-0"><i class="bi bi-upload me-2"></i>Upload Excel File</h5>
+                </div>
+                <div class="card-body">
+                    <p>Upload a new Excel file to add to your collection.</p>
+                    <form id="uploadExcelForm" enctype="multipart/form-data">
+                        <div class="mb-3">
+                            <label for="excelFile" class="form-label">Select Excel File (.xlsx)</label>
+                            <input class="form-control" type="file" id="excelFile" name="file" accept=".xlsx">
+                        </div>
+                        <div class="mb-3">
+                            <label for="fileTitle" class="form-label">File Title (Optional)</label>
+                            <input class="form-control" type="text" id="fileTitle" name="title" placeholder="e.g. January 2025 Keys">
+                        </div>
+                        <button type="submit" class="btn btn-success">
+                            <i class="bi bi-cloud-upload me-2"></i>Upload File
+                        </button>
+                    </form>
+                    <div class="alert mt-3 d-none" id="uploadResult" role="alert"></div>
+                </div>
+            </div>
+            
+            <!-- Download Current File Section -->
+            <div class="card mt-3">
+                <div class="card-header bg-primary text-white">
+                    <h5 class="mb-0"><i class="bi bi-download me-2"></i>Download Current File</h5>
+                </div>
+                <div class="card-body">
+                    <p>Download the currently active Excel file being used by the system.</p>
+                    <a href="/api/excel/download" class="btn btn-primary" id="downloadExcel">
+                        <i class="bi bi-file-earmark-excel me-2"></i>Download Current Excel File
+                    </a>
+                </div>
+            </div>
+            
+            <!-- Create New Database Section -->
+            <div class="card mt-3">
+                <div class="card-header bg-info text-white">
+                    <h5 class="mb-0"><i class="bi bi-plus-circle me-2"></i>Create New Database</h5>
+                </div>
+                <div class="card-body">
+                    <p>Create a new Excel database from scratch with rooms and keys.</p>
+                    <a href="/create-database" class="btn btn-info">
+                        <i class="bi bi-database-add me-2"></i>Create New Database
+                    </a>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Files Management Section -->
+        <div class="col-md-6 mb-4">
+            <div class="card">
+                <div class="card-header bg-info text-white">
+                    <h5 class="mb-0"><i class="bi bi-files me-2"></i>Manage Excel Files</h5>
+                </div>
+                <div class="card-body">
+                    <p>Choose which Excel file to use as the source data for KeyTrack.</p>
+                    <div class="text-center mb-3" id="loadingFiles">
+                        <div class="spinner-border text-info" role="status">
+                            <span class="visually-hidden">Loading...</span>
+                        </div>
+                        <p class="mt-2">Loading files...</p>
+                    </div>
+                    <div class="table-responsive" id="filesTable" style="display: none;">
+                        <table class="table table-hover">
+                            <thead>
+                                <tr>
+                                    <th>Title</th>
+                                    <th>Original Name</th>
+                                    <th>Uploaded</th>
+                                    <th>Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody id="filesList">
+                                <!-- Files will be loaded here via JavaScript -->
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="alert alert-warning mt-3 d-none" id="noFilesMessage">
+                        <i class="bi bi-exclamation-triangle me-2"></i>No Excel files have been uploaded yet.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Confirmation Modal -->
+<div class="modal fade" id="confirmLoadModal" tabindex="-1" aria-labelledby="confirmLoadModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header bg-warning">
+                <h5 class="modal-title" id="confirmLoadModalLabel">Confirm Data Change</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <p>Are you sure you want to load this Excel file as the active data source?</p>
+                <p class="text-danger"><strong>Warning:</strong> This will change all data displayed in the application.</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                <button type="button" class="btn btn-primary" id="confirmLoad">Yes, Load This File</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Delete Confirmation Modal -->
+<div class="modal fade" id="confirmDeleteModal" tabindex="-1" aria-labelledby="confirmDeleteModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header bg-danger text-white">
+                <h5 class="modal-title" id="confirmDeleteModalLabel">Confirm Delete</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <p>Are you sure you want to delete this Excel file?</p>
+                <p class="text-danger"><strong>Warning:</strong> This action cannot be undone.</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                <button type="button" class="btn btn-danger" id="confirmDelete">Yes, Delete This File</button>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block extra_js %}
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const uploadForm = document.getElementById('uploadExcelForm');
+    const uploadResult = document.getElementById('uploadResult');
+    const filesList = document.getElementById('filesList');
+    const loadingFiles = document.getElementById('loadingFiles');
+    const filesTable = document.getElementById('filesTable');
+    const noFilesMessage = document.getElementById('noFilesMessage');
+    const confirmLoadModal = new bootstrap.Modal(document.getElementById('confirmLoadModal'));
+    const confirmDeleteModal = new bootstrap.Modal(document.getElementById('confirmDeleteModal'));
+    
+    let selectedFileId = null;
+    let activeFileId = null;
+    
+    // Load files when the page loads
+    loadExcelFiles();
+    
+    // Handle file upload
+    uploadForm.addEventListener('submit', function(e) {
+        e.preventDefault();
+        
+        const formData = new FormData(this);
+        const fileInput = document.getElementById('excelFile');
+        
+        if (!fileInput.files.length) {
+            uploadResult.textContent = 'Please select a file to upload';
+            uploadResult.classList.remove('d-none', 'alert-success');
+            uploadResult.classList.add('alert-danger');
+            return;
+        }
+        
+        // Show loading state
+        const submitBtn = uploadForm.querySelector('button[type="submit"]');
+        const originalBtnText = submitBtn.innerHTML;
+        submitBtn.innerHTML = '<span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span> Uploading...';
+        submitBtn.disabled = true;
+        
+        // Upload the file
+        fetch('/api/excel/upload', {
+            method: 'POST',
+            body: formData
+        })
+        .then(response => response.json())
+        .then(data => {
+            if (data.success) {
+                uploadResult.textContent = 'File uploaded successfully!';
+                uploadResult.classList.remove('d-none', 'alert-danger');
+                uploadResult.classList.add('alert-success');
+                
+                // Clear the form
+                fileInput.value = '';
+                document.getElementById('fileTitle').value = '';
+                
+                // Reload the files list
+                loadExcelFiles();
+            } else {
+                uploadResult.textContent = 'Error: ' + (data.error || 'Unknown error occurred');
+                uploadResult.classList.remove('d-none', 'alert-success');
+                uploadResult.classList.add('alert-danger');
+            }
+        })
+        .catch(error => {
+            uploadResult.textContent = 'Error: ' + error.message;
+            uploadResult.classList.remove('d-none', 'alert-success');
+            uploadResult.classList.add('alert-danger');
+        })
+        .finally(() => {
+            // Restore button state
+            submitBtn.innerHTML = originalBtnText;
+            submitBtn.disabled = false;
+        });
+    });
+    
+    // Set up event delegation for the load buttons
+    filesList.addEventListener('click', function(e) {
+        // Check if we clicked on a load button
+        if (e.target.classList.contains('load-file-btn') || 
+            e.target.closest('.load-file-btn')) {
+            
+            const btn = e.target.classList.contains('load-file-btn') ? 
+                e.target : e.target.closest('.load-file-btn');
+            
+            selectedFileId = btn.dataset.fileId;
+            confirmLoadModal.show();
+        }
+        
+        // Check if we clicked on a delete button
+        if (e.target.classList.contains('delete-file-btn') || 
+            e.target.closest('.delete-file-btn')) {
+            
+            const btn = e.target.classList.contains('delete-file-btn') ? 
+                e.target : e.target.closest('.delete-file-btn');
+            
+            selectedFileId = btn.dataset.fileId;
+            confirmDeleteModal.show();
+        }
+    });
+    
+    // Handle confirm load button
+    document.getElementById('confirmLoad').addEventListener('click', function() {
+        if (!selectedFileId) {
+            confirmLoadModal.hide();
+            return;
+        }
+        
+        // Show loading state
+        this.innerHTML = '<span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span> Loading...';
+        this.disabled = true;
+        
+        // Set the file as active
+        fetch('/api/excel/activate', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({ file_id: selectedFileId })
+        })
+        .then(response => response.json())
+        .then(data => {
+            confirmLoadModal.hide();
+            
+            if (data.success) {
+                // Show success message
+                uploadResult.textContent = 'Excel file loaded successfully! The application is now using this data.';
+                uploadResult.classList.remove('d-none', 'alert-danger');
+                uploadResult.classList.add('alert-success');
+                
+                // Reload files to update the active indicator
+                loadExcelFiles();
+                
+                // Optional: Refresh the page after a short delay
+                setTimeout(() => {
+                    location.reload();
+                }, 1500);
+            } else {
+                uploadResult.textContent = 'Error loading file: ' + (data.error || 'Unknown error occurred');
+                uploadResult.classList.remove('d-none', 'alert-success');
+                uploadResult.classList.add('alert-danger');
+            }
+        })
+        .catch(error => {
+            confirmLoadModal.hide();
+            uploadResult.textContent = 'Error loading file: ' + error.message;
+            uploadResult.classList.remove('d-none', 'alert-success');
+            uploadResult.classList.add('alert-danger');
+        });
+    });
+    
+    // Handle confirm delete button
+    document.getElementById('confirmDelete').addEventListener('click', function() {
+        if (!selectedFileId) {
+            confirmDeleteModal.hide();
+            return;
+        }
+        
+        // Show loading state
+        this.innerHTML = '<span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span> Deleting...';
+        this.disabled = true;
+        
+        // Delete the file
+        fetch('/api/excel/remove', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({ file_id: selectedFileId })
+        })
+        .then(response => response.json())
+        .then(data => {
+            confirmDeleteModal.hide();
+            
+            if (data.success) {
+                // Show success message
+                uploadResult.textContent = 'Excel file removed successfully!';
+                uploadResult.classList.remove('d-none', 'alert-danger');
+                uploadResult.classList.add('alert-success');
+                
+                // Reload files
+                loadExcelFiles();
+            } else {
+                uploadResult.textContent = 'Error removing file: ' + (data.error || 'Unknown error occurred');
+                uploadResult.classList.remove('d-none', 'alert-success');
+                uploadResult.classList.add('alert-danger');
+            }
+        })
+        .catch(error => {
+            confirmDeleteModal.hide();
+            uploadResult.textContent = 'Error removing file: ' + error.message;
+            uploadResult.classList.remove('d-none', 'alert-success');
+            uploadResult.classList.add('alert-danger');
+        })
+        .finally(() => {
+            // Reset button state
+            this.innerHTML = 'Yes, Delete This File';
+            this.disabled = false;
+        });
+    });
+    
+    // Function to load Excel files
+    function loadExcelFiles() {
+        // Show loading state
+        loadingFiles.style.display = 'block';
+        filesTable.style.display = 'none';
+        noFilesMessage.classList.add('d-none');
+        
+        fetch('/api/excel/files')
+        .then(response => response.json())
+        .then(data => {
+            if (data.success && data.files && data.files.length > 0) {
+                // Store the active file ID
+                activeFileId = data.active_file;
+                
+                // Render files
+                renderExcelFiles(data.files, activeFileId);
+                filesTable.style.display = 'block';
+                noFilesMessage.classList.add('d-none');
+            } else {
+                // No files or error
+                noFilesMessage.classList.remove('d-none');
+                filesTable.style.display = 'none';
+            }
+        })
+        .catch(error => {
+            console.error('Error loading Excel files:', error);
+            noFilesMessage.classList.remove('d-none');
+            filesTable.style.display = 'none';
+        })
+        .finally(() => {
+            loadingFiles.style.display = 'none';
+        });
+    }
+    
+    // Function to render Excel files
+    function renderExcelFiles(files, activeFileId) {
+        filesList.innerHTML = '';
+        
+        files.forEach(file => {
+            const isActive = file.id === activeFileId;
+            
+            const row = document.createElement('tr');
+            if (isActive) {
+                row.classList.add('table-success');
+            }
+            
+            row.innerHTML = `
+                <td>
+                    ${isActive ? '<i class="bi bi-check-circle-fill text-success me-2"></i>' : ''}
+                    ${file.title || file.original_name}
+                </td>
+                <td>${file.original_name}</td>
+                <td>${file.formatted_date}</td>
+                <td>
+                    <div class="btn-group btn-group-sm">
+                        <button class="btn btn-primary load-file-btn" data-file-id="${file.id}" ${isActive ? 'disabled' : ''}>
+                            <i class="bi bi-check-circle me-1"></i>Load
+                        </button>
+                        <a href="/api/excel/download/${file.id}" class="btn btn-info">
+                            <i class="bi bi-download me-1"></i>Download
+                        </a>
+                        <button class="btn btn-danger delete-file-btn" data-file-id="${file.id}" ${isActive ? 'disabled' : ''}>
+                            <i class="bi bi-trash me-1"></i>Delete
+                        </button>
+                    </div>
+                </td>
+            `;
+            
+            filesList.appendChild(row);
+        });
+    }
+});
+</script>
+{% endblock %}

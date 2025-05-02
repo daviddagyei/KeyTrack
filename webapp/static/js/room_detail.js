@@ -1,8 +1,8 @@
 // KeyTrack Room Detail JavaScript
 document.addEventListener('DOMContentLoaded', function() {
-    // Get room ID from URL path
+    // Get room ID from URL path and properly decode it
     const pathParts = window.location.pathname.split('/');
-    const roomId = pathParts[pathParts.length - 1];
+    const roomId = decodeURIComponent(pathParts[pathParts.length - 1]);
     
     // Update room ID in the UI
     document.getElementById('roomId').textContent = roomId;
@@ -117,7 +117,47 @@ function createActionListItem(action, type) {
     listItem.className = 'list-group-item d-flex justify-content-between align-items-center';
     
     let badgeClass = 'bg-maroon';
-    if (type === 'returned') badgeClass = 'bg-success';
+    let displayType = type;
+    
+    // Use consistent styling for different action types
+    if (type === 'returned') {
+        badgeClass = 'bg-success';
+        // Check if the returned key was originally collected or borrowed
+        // This is a visual enhancement only - backend now treats all returns the same
+        const returnDate = new Date(action.timestamp);
+        const collectedActions = document.querySelectorAll('#collectedKeysList .list-group-item');
+        const borrowedActions = document.querySelectorAll('#borrowedKeysList .list-group-item');
+        
+        let wasCollected = false;
+        let wasBorrowed = false;
+        
+        // Check if this student collected a key before returning it
+        for (let i = 0; i < collectedActions.length; i++) {
+            const actionStudent = collectedActions[i].querySelector('strong').textContent;
+            if (actionStudent === action.student) {
+                wasCollected = true;
+                break;
+            }
+        }
+        
+        // If not collected, check if it was borrowed
+        if (!wasCollected) {
+            for (let i = 0; i < borrowedActions.length; i++) {
+                const actionStudent = borrowedActions[i].querySelector('strong').textContent;
+                if (actionStudent === action.student) {
+                    wasBorrowed = true;
+                    break;
+                }
+            }
+        }
+        
+        // Adjust display type based on collection history
+        if (wasBorrowed) {
+            displayType = 'returned borrowed';
+        } else {
+            displayType = 'returned collected';
+        }
+    }
     if (type === 'lost') badgeClass = 'bg-danger';
     if (type === 'borrowed') badgeClass = 'bg-warning';
     
@@ -126,7 +166,7 @@ function createActionListItem(action, type) {
             <strong>${action.student}</strong>
         </div>
         <div>
-            <span class="badge ${badgeClass}">${type}</span>
+            <span class="badge ${badgeClass}">${displayType}</span>
             <small class="text-muted ms-2">${new Date(action.timestamp).toLocaleString()}</small>
         </div>
     `;
@@ -155,12 +195,17 @@ function showSuccess(message) {
     document.getElementById('successModalText').textContent = message;
     successModal.show();
     
-    // Reload room data after a successful action
+    // Reload room data after a successful action, but keep the modal visible
     setTimeout(() => {
         const pathParts = window.location.pathname.split('/');
-        const roomId = pathParts[pathParts.length - 1];
+        const roomId = decodeURIComponent(pathParts[pathParts.length - 1]);
         loadRoomData(roomId);
-    }, 500);
+        
+        // Close the modal after another delay to ensure users can read the message
+        setTimeout(() => {
+            successModal.hide();
+        }, 3000); // Keep success message visible for 3 seconds after data reload
+    }, 1000); // Wait 1 second before reloading data
 }
 
 // Set up action buttons (collect, return, lost, borrow)
@@ -212,16 +257,29 @@ function setupActionButtons(roomId) {
         
         performAction('borrow', roomId, studentName);
     });
+    
+    // Return borrowed key
+    document.getElementById('returnBorrowedKeyButton').addEventListener('click', function() {
+        const studentName = document.getElementById('returnBorrowedStudentName').value.trim();
+        if (!studentName) {
+            document.getElementById('returnBorrowedKeyError').textContent = 'Please enter a student name';
+            document.getElementById('returnBorrowedKeyError').classList.remove('d-none');
+            return;
+        }
+        
+        performAction('returnBorrowed', roomId, studentName);
+    });
 }
 
-// Perform a key action (collect, return, lost, borrow)
+// Perform a key action (collect, return, lost, borrow, returnBorrowed)
 function performAction(action, roomId, studentName) {
     // Map action to API endpoint
     const actionEndpoints = {
         'collect': 'collect',
         'return': 'return',
         'lost': 'lost',
-        'borrow': 'borrow'
+        'borrow': 'borrow',
+        'returnBorrowed': 'return-borrowed'
     };
     
     const endpoint = actionEndpoints[action];
@@ -244,18 +302,20 @@ function performAction(action, roomId, studentName) {
     })
     .then(response => response.json())
     .then(data => {
-        // Close the modal
-        const modalId = `${action}KeyModal`;
-        const modal = bootstrap.Modal.getInstance(document.getElementById(modalId));
-        modal.hide();
-        
-        // Clear the input field
-        document.getElementById(`${action}StudentName`).value = '';
-        
         // Show success or error message
         if (data.success) {
+            // Only close the modal and clear input on success
+            const modalId = `${action}KeyModal`;
+            const modal = bootstrap.Modal.getInstance(document.getElementById(modalId));
+            modal.hide();
+            
+            // Clear the input field
+            document.getElementById(`${action}StudentName`).value = '';
+            
+            // Show success message
             showSuccess(data.message);
         } else {
+            // Show error inside the modal (don't close the modal)
             const errorModalId = `${action}KeyError`;
             document.getElementById(errorModalId).textContent = data.error || 'An error occurred';
             document.getElementById(errorModalId).classList.remove('d-none');

@@ -1,0 +1,32 @@
+2025-05-02 00:07:34,656 - INFO - Loaded 100 rooms from Excel file
+2025-05-02 00:07:34,657 - INFO - Loaded 100 rooms from Excel file
+2025-05-02 00:07:34,668 - INFO - Loaded 100 rooms from Excel file
+2025-05-02 00:08:34,492 - INFO - Loaded 100 rooms from Excel file
+2025-05-02 00:08:34,510 - INFO - Loaded 100 rooms from Excel file
+2025-05-02 00:08:34,515 - INFO - Loaded 100 rooms from Excel file
+2025-05-02 00:08:50,296 - INFO - Loaded 100 rooms from Excel file
+2025-05-02 00:08:50,309 - INFO - Loaded 100 rooms from Excel file
+2025-05-02 00:08:50,325 - INFO - Loaded 100 rooms from Excel file
+2025-05-02 00:09:16,492 - INFO - Student Alice is collecting a key for room 101
+2025-05-02 00:09:16,492 - INFO - Student Alice collected a key for room 101
+2025-05-02 00:09:16,529 - INFO - Saved 100 rooms to Excel file
+2025-05-02 00:09:24,431 - INFO - Student David Agyei is collecting a key for room 101
+2025-05-02 00:09:24,432 - INFO - Student David Agyei collected a key for room 101
+2025-05-02 00:09:24,462 - INFO - Saved 100 rooms to Excel file
+2025-05-02 00:10:33,808 - INFO - Loaded 100 rooms from Excel file
+2025-05-02 00:10:33,809 - INFO - Student Daniel is reporting a lost key for room 101
+2025-05-02 00:10:33,809 - WARNING - No record of key collection for student Daniel in room 101
+2025-05-02 00:10:48,699 - INFO - Student Alice is returning a key for room 101
+2025-05-02 00:10:48,699 - INFO - Student Alice returned a key for room 101
+2025-05-02 00:10:48,726 - INFO - Saved 100 rooms to Excel file
+2025-05-02 00:11:11,808 - INFO - Student Daniel is borrowing a spare key for room 102
+2025-05-02 00:11:11,808 - INFO - Student Daniel borrowed a spare key for room 102
+2025-05-02 00:11:11,837 - INFO - Saved 100 rooms to Excel file
+2025-05-02 00:11:29,028 - INFO - Student Daniel is returning a key for room 102
+2025-05-02 00:11:29,028 - WARNING - No record of key collection for student Daniel in room 102
+2025-05-02 00:14:31,326 - INFO - Loaded 100 rooms from Excel file
+2025-05-02 00:14:31,337 - INFO - Loaded 100 rooms from Excel file
+2025-05-02 00:14:31,338 - INFO - Loaded 100 rooms from Excel file
+2025-05-02 00:14:50,952 - INFO - Loaded 100 rooms from Excel file
+2025-05-02 00:14:50,963 - INFO - Loaded 100 rooms from Excel file
+2025-05-02 00:14:50,975 - INFO - Loaded 100 rooms from Excel file
