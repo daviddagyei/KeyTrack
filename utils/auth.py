@@ -24,18 +24,18 @@ def init_supabase():
             print("Warning: Supabase credentials not found. Auth features will be disabled.")
     return supabase
 
-def is_uchicago_email(email):
-    """Verify that the email is a UChicago email address"""
-    # Simple check for @uchicago.edu domain
-    pattern = r'^[a-zA-Z0-9_.+-]+@uchicago\.edu$'
+def is_Caltech_email(email):
+    """Verify that the email is a Caltech email address"""
+    # Simple check for @Caltech.edu domain
+    pattern = r'^[a-zA-Z0-9_.+-]+@Caltech\.edu$'
     return bool(re.match(pattern, email))
 
 def sign_up(email, password, user_metadata=None):
     """Register a new user with Supabase"""
     try:
-        # Verify UChicago email
-        if not is_uchicago_email(email):
-            return None, "You must use a valid @uchicago.edu email address"
+        # Verify Caltech email
+        if not is_Caltech_email(email):
+            return None, "You must use a valid @Caltech.edu email address"
             
         client = init_supabase()
         if not client:
@@ -55,9 +55,9 @@ def sign_up(email, password, user_metadata=None):
 def sign_in(email, password):
     """Sign in an existing user"""
     try:
-        # Verify UChicago email
-        if not is_uchicago_email(email):
-            return None, None, "You must use a valid @uchicago.edu email address"
+        # Verify Caltech email
+        if not is_Caltech_email(email):
+            return None, None, "You must use a valid @Caltech.edu email address"
             
         client = init_supabase()
         if not client:

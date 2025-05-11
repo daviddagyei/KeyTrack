@@ -27,7 +27,7 @@ A modern, secure, and user-friendly web application for managing room key distri
 ---
 
 ## Features
-- UChicago-branded authentication (Supabase, Flask-Login, UChicago email enforcement)
+- Caltech-branded authentication (Supabase, Flask-Login, Caltech email enforcement)
 - Demo mode for instant exploration (no login required)
 - Key actions: collect, return, report lost, borrow spare, return borrowed
 - Realistic sample data for demo users
@@ -71,11 +71,11 @@ A modern, secure, and user-friendly web application for managing room key distri
 - **Session Management**: Uses Flask-Login for user sessions and integrates with Supabase for secure authentication.
 
 ### Templates & Static Files
-- **`webapp/templates/`**: Jinja2 HTML templates for all pages (login, signup, dashboard, room detail, actions, etc.), with UChicago branding and responsive design.
+- **`webapp/templates/`**: Jinja2 HTML templates for all pages (login, signup, dashboard, room detail, actions, etc.), with Caltech branding and responsive design.
 - **`webapp/static/`**: CSS, JS, and image assets. Includes dashboard charts, room detail interactivity, and form validation.
 
 ### Utilities
-- **`utils/auth.py`**: Supabase authentication logic, UChicago email enforcement, and session helpers.
+- **`utils/auth.py`**: Supabase authentication logic, Caltech email enforcement, and session helpers.
 - **`utils/logger.py`**: Logging setup for audit trails and debugging.
 - **`utils/excel_creator.py`**: Utility for initializing or resetting Excel files.
 
@@ -87,7 +87,7 @@ A modern, secure, and user-friendly web application for managing room key distri
 
 ## Authentication
 - **Supabase**: Handles secure user authentication and session management.
-- **UChicago Email Enforcement**: Only users with `@uchicago.edu` emails can register/login (except in demo mode).
+- **CaltechEmail Enforcement**: Only users with `@Caltech.edu` emails can register/login (except in demo mode).
 - **Flask-Login**: Manages user sessions and access control.
 
 ---
