@@ -1,43 +1,43 @@
-/* KeyTrack custom styles - University of Chicago color scheme */
+/* KeyTrack custom styles - Caltech color scheme */
 
 :root {
   /* Primary Colors */
-  --phoenix-maroon: #800000;
-  --phoenix-maroon-dark: #600000;
-  --phoenix-maroon-light: #9a0000;
-  --light-greystone: #D9D9D9;
-  --dark-greystone: #737373;
-  --footer-grey: #404040;
+  --caltech-orange: #FF6C0C;
+  --caltech-orange-dark: #D85A00;
+  --caltech-orange-light: #FF8A3C;
+  --light-gray: #D9D9D9;
+  --dark-gray: #737373;
+  --footer-gray: #404040;
   
   /* Secondary Accent Colors */
-  --light-goldenrod: #F3D03E;
-  --light-terracotta: #ECA154;
-  --light-brick: #B46A55;
-  --light-ivy: #A9C47F;
-  --light-forest: #9CAF88;
-  --light-lake: #3EB1C8;
-  --light-violet: #86647A;
+  --light-gold: #F3D03E;
+  --light-coral: #ECA154;
+  --light-rust: #B46A55;
+  --light-sage: #A9C47F;
+  --light-green: #9CAF88;
+  --light-blue: #3EB1C8;
+  --light-purple: #86647A;
 
-  /* Transparent Maroon Colors */
-  --phoenix-maroon-90: rgba(128, 0, 0, 0.9);
-  --phoenix-maroon-80: rgba(128, 0, 0, 0.8);
-  --phoenix-maroon-70: rgba(128, 0, 0, 0.7);
-  --phoenix-maroon-60: rgba(128, 0, 0, 0.6);
-  --phoenix-maroon-50: rgba(128, 0, 0, 0.5);
-  --phoenix-maroon-40: rgba(128, 0, 0, 0.4);
-  --phoenix-maroon-30: rgba(128, 0, 0, 0.3);
-  --phoenix-maroon-20: rgba(128, 0, 0, 0.2);
-  --phoenix-maroon-10: rgba(128, 0, 0, 0.1);
+  /* Transparent Orange Colors */
+  --caltech-orange-90: rgba(255, 108, 12, 0.9);
+  --caltech-orange-80: rgba(255, 108, 12, 0.8);
+  --caltech-orange-70: rgba(255, 108, 12, 0.7);
+  --caltech-orange-60: rgba(255, 108, 12, 0.6);
+  --caltech-orange-50: rgba(255, 108, 12, 0.5);
+  --caltech-orange-40: rgba(255, 108, 12, 0.4);
+  --caltech-orange-30: rgba(255, 108, 12, 0.3);
+  --caltech-orange-20: rgba(255, 108, 12, 0.2);
+  --caltech-orange-10: rgba(255, 108, 12, 0.1);
   
-  --phoenix-maroon-light-80: rgba(154, 0, 0, 0.8);
-  --phoenix-maroon-light-60: rgba(154, 0, 0, 0.6);
-  --phoenix-maroon-light-40: rgba(154, 0, 0, 0.4);
-  --phoenix-maroon-light-20: rgba(154, 0, 0, 0.2);
+  --caltech-orange-light-80: rgba(255, 138, 60, 0.8);
+  --caltech-orange-light-60: rgba(255, 138, 60, 0.6);
+  --caltech-orange-light-40: rgba(255, 138, 60, 0.4);
+  --caltech-orange-light-20: rgba(255, 138, 60, 0.2);
   
-  --phoenix-maroon-dark-80: rgba(96, 0, 0, 0.8);
-  --phoenix-maroon-dark-60: rgba(96, 0, 0, 0.6);
-  --phoenix-maroon-dark-40: rgba(96, 0, 0, 0.4);
-  --phoenix-maroon-dark-20: rgba(96, 0, 0, 0.2);
+  --caltech-orange-dark-80: rgba(216, 90, 0, 0.8);
+  --caltech-orange-dark-60: rgba(216, 90, 0, 0.6);
+  --caltech-orange-dark-40: rgba(216, 90, 0, 0.4);
+  --caltech-orange-dark-20: rgba(216, 90, 0, 0.2);
 }
 
 /* Sticky footer styles */
@@ -47,7 +47,7 @@ html, body {
 
 body {
   background-color: #f8f8f8;
-  color: var(--dark-greystone);
+  color: var(--dark-gray);
   display: flex;
   flex-direction: column;
 }
@@ -64,7 +64,7 @@ footer {
 
 /* Sidebar styling */
 .sidebar {
-  background-color: var(--phoenix-maroon) !important;
+  background-color: var(--caltech-orange) !important;
   color: white;
   min-height: 100vh;
 }
@@ -83,7 +83,7 @@ footer {
 .sidebar .nav-link.active {
   color: white !important;
   background-color: rgba(255, 255, 255, 0.2);
-  border-left: 4px solid var(--light-goldenrod);
+  border-left: 4px solid var(--light-gold);
   font-weight: 600;
   opacity: 1;
 }
@@ -92,170 +92,170 @@ footer {
   color: white !important;
 }
 
-/* Override Bootstrap primary color with phoenix maroon */
+/* Override Bootstrap primary color with caltech orange */
 .text-primary {
-  color: var(--phoenix-maroon-80) !important;
+  color: var(--caltech-orange-80) !important;
 }
 
 .bg-primary {
-  background-color: var(--phoenix-maroon-90) !important;
+  background-color: var(--caltech-orange-90) !important;
 }
 
 /* Button styles */
 .btn-primary {
-  background-color: var(--phoenix-maroon-80) !important;
-  border-color: var(--phoenix-maroon-90) !important;
+  background-color: var(--caltech-orange-80) !important;
+  border-color: var(--caltech-orange-90) !important;
 }
 
 .btn-primary:hover, .btn-primary:focus, .btn-primary:active {
-  background-color: var(--phoenix-maroon-dark-80) !important;
-  border-color: var(--phoenix-maroon-dark) !important;
+  background-color: var(--caltech-orange-dark-80) !important;
+  border-color: var(--caltech-orange-dark) !important;
 }
 
 .btn-outline-primary {
-  color: var(--phoenix-maroon-80) !important;
-  border-color: var(--phoenix-maroon-80) !important;
+  color: var(--caltech-orange-80) !important;
+  border-color: var(--caltech-orange-80) !important;
 }
 
 .btn-outline-primary:hover, .btn-outline-primary:focus, .btn-outline-primary:active {
-  background-color: var(--phoenix-maroon-70) !important;
+  background-color: var(--caltech-orange-70) !important;
   color: white !important;
 }
 
-/* Override Bootstrap standard button colors with UChicago colors */
+/* Override Bootstrap standard button colors with Caltech colors */
 .btn-success {
-  background-color: var(--light-ivy) !important;
-  border-color: var(--light-ivy) !important;
-  color: var(--footer-grey) !important;
+  background-color: var(--light-sage) !important;
+  border-color: var(--light-sage) !important;
+  color: var(--footer-gray) !important;
 }
 
 .btn-success:hover, .btn-success:focus, .btn-success:active {
-  background-color: var(--light-forest) !important;
-  border-color: var (--light-forest) !important;
-  color: var(--footer-grey) !important;
+  background-color: var(--light-green) !important;
+  border-color: var(--light-green) !important;
+  color: var(--footer-gray) !important;
 }
 
 .btn-danger {
-  background-color: var(--phoenix-maroon-light-80) !important;
-  border-color: var(--phoenix-maroon-light) !important;
+  background-color: var(--caltech-orange-light-80) !important;
+  border-color: var(--caltech-orange-light) !important;
 }
 
 .btn-danger:hover, .btn-danger:focus, .btn-danger:active {
-  background-color: var(--phoenix-maroon-80) !important;
-  border-color: var(--phoenix-maroon) !important;
+  background-color: var(--caltech-orange-80) !important;
+  border-color: var(--caltech-orange) !important;
 }
 
 .btn-warning {
-  background-color: var(--light-goldenrod) !important;
-  border-color: var(--light-goldenrod) !important;
-  color: var(--footer-grey) !important;
+  background-color: var(--light-gold) !important;
+  border-color: var(--light-gold) !important;
+  color: var(--footer-gray) !important;
 }
 
 .btn-warning:hover, .btn-warning:focus, .btn-warning:active {
-  background-color: var(--light-terracotta) !important;
-  border-color: var(--light-terracotta) !important;
-  color: var(--footer-grey) !important;
+  background-color: var(--light-coral) !important;
+  border-color: var(--light-coral) !important;
+  color: var(--footer-gray) !important;
 }
 
 .btn-secondary {
-  background-color: var(--dark-greystone) !important;
-  border-color: var(--dark-greystone) !important;
+  background-color: var(--dark-gray) !important;
+  border-color: var(--dark-gray) !important;
 }
 
 .btn-secondary:hover, .btn-secondary:focus, .btn-secondary:active {
-  background-color: var(--footer-grey) !important;
-  border-color: var(--footer-grey) !important;
+  background-color: var(--footer-gray) !important;
+  border-color: var(--footer-gray) !important;
 }
 
 .btn-info {
-  background-color: var(--light-lake) !important;
-  border-color: var(--light-lake) !important;
+  background-color: var(--light-blue) !important;
+  border-color: var(--light-blue) !important;
 }
 
 .btn-info:hover, .btn-info:focus, .btn-info:active {
-  background-color: var(--light-violet) !important;
-  border-color: var(--light-violet) !important;
+  background-color: var(--light-purple) !important;
+  border-color: var(--light-purple) !important;
 }
 
 /* Secondary accent button styles */
 .btn-accent-gold {
-  background-color: var(--light-goldenrod) !important;
-  border-color: var(--light-goldenrod) !important;
-  color: var(--footer-grey) !important;
+  background-color: var(--light-gold) !important;
+  border-color: var(--light-gold) !important;
+  color: var(--footer-gray) !important;
 }
 
 .btn-accent-lake {
-  background-color: var(--light-lake) !important;
-  border-color: var(--light-lake) !important;
+  background-color: var(--light-blue) !important;
+  border-color: var(--light-blue) !important;
   color: white !important;
 }
 
 /* Badge styles */
-.bg-maroon {
-  background-color: var(--phoenix-maroon-80) !important;
+.bg-orange {
+  background-color: var(--caltech-orange-80) !important;
   color: white !important;
 }
 
 .bg-gold {
-  background-color: var(--light-goldenrod) !important;
-  color: var(--footer-grey) !important;
+  background-color: var(--light-gold) !important;
+  color: var(--footer-gray) !important;
 }
 
-.bg-brick {
-  background-color: var(--light-brick) !important;
+.bg-rust {
+  background-color: var(--light-rust) !important;
   color: white !important;
 }
 
 .bg-lake {
-  background-color: var(--light-lake) !important;
+  background-color: var(--light-blue) !important;
   color: white !important;
 }
 
-/* Override Bootstrap standard badge colors with UChicago colors */
+/* Override Bootstrap standard badge colors with Caltech colors */
 .bg-primary {
-  background-color: var(--phoenix-maroon-80) !important;
+  background-color: var(--caltech-orange-80) !important;
   color: white !important;
 }
 
 .bg-success {
-  background-color: var(--light-ivy) !important;
-  color: var(--footer-grey) !important;
+  background-color: var(--light-sage) !important;
+  color: var(--footer-gray) !important;
 }
 
 .bg-danger {
-  background-color: var(--phoenix-maroon-light-80) !important;
+  background-color: var(--caltech-orange-light-80) !important;
   color: white !important;
 }
 
 .bg-warning {
-  background-color: var(--light-goldenrod) !important;
-  color: var(--footer-grey) !important;
+  background-color: var(--light-gold) !important;
+  color: var(--footer-gray) !important;
 }
 
 .bg-info {
-  background-color: var(--light-lake) !important;
+  background-color: var(--light-blue) !important;
   color: white !important;
 }
 
 .bg-secondary {
-  background-color: var(--dark-greystone) !important;
+  background-color: var(--dark-gray) !important;
   color: white !important;
 }
 
 .text-success {
-  color: var(--light-forest) !important;
+  color: var(--light-green) !important;
 }
 
 .text-danger {
-  color: var(--phoenix-maroon-80) !important;
+  color: var(--caltech-orange-80) !important;
 }
 
 .text-warning {
-  color: var(--light-terracotta) !important;
+  color: var(--light-coral) !important;
 }
 
 .text-info {
-  color: var(--light-lake) !important;
+  color: var(--light-blue) !important;
 }
 
 /* Card styling */
@@ -267,56 +267,56 @@ footer {
 
 .card-header {
   background-color: white;
-  border-bottom: 2px solid var(--light-greystone);
+  border-bottom: 2px solid var(--light-gray);
   font-weight: 600;
 }
 
 /* Override standard card header background colors */
 .card-header.bg-primary {
-  background-color: var(--phoenix-maroon-80) !important;
+  background-color: var(--caltech-orange-80) !important;
   color: white !important;
   border-bottom: none;
 }
 
 .card-header.bg-success {
-  background-color: var(--light-ivy) !important;
-  color: var(--footer-grey) !important;
+  background-color: var(--light-sage) !important;
+  color: var(--footer-gray) !important;
   border-bottom: none;
 }
 
 .card-header.bg-danger {
-  background-color: var(--phoenix-maroon-light-60) !important;
+  background-color: var(--caltech-orange-light-60) !important;
   color: white !important;
   border-bottom: none;
 }
 
 .card-header.bg-warning {
-  background-color: var(--light-goldenrod) !important;
-  color: var(--footer-grey) !important;
+  background-color: var(--light-gold) !important;
+  color: var(--footer-gray) !important;
   border-bottom: none;
 }
 
 .card-header.bg-info {
-  background-color: var(--light-lake) !important;
+  background-color: var(--light-blue) !important;
   color: white !important;
   border-bottom: none;
 }
 
 .card-header.bg-light {
-  background-color: var(--light-greystone) !important;
-  color: var(--dark-greystone) !important;
+  background-color: var(--light-gray) !important;
+  color: var(--dark-gray) !important;
 }
 
 /* Table styling */
 .table thead th {
-  border-bottom: 2px solid var(--phoenix-maroon-60);
-  color: var(--phoenix-maroon-80);
+  border-bottom: 2px solid var(--caltech-orange-60);
+  color: var(--caltech-orange-80);
 }
 
 /* Form controls */
 .form-control:focus, .form-select:focus {
-  border-color: var(--phoenix-maroon-60);
-  box-shadow: 0 0 0 0.25rem var(--phoenix-maroon-20);
+  border-color: var(--caltech-orange-60);
+  box-shadow: 0 0 0 0.25rem var(--caltech-orange-20);
 }
 
 /* Chart container height */
@@ -331,11 +331,11 @@ footer {
 }
 
 .suggestion-item:hover {
-  background-color: var(--light-greystone);
+  background-color: var(--light-gray);
 }
 
 .suggestion-item.active {
-  background-color: var(--phoenix-maroon-60);
+  background-color: var(--caltech-orange-60);
   color: white;
 }
 
@@ -352,65 +352,65 @@ footer {
 
 /* Footer styling */
 footer {
-  background-color: var(--footer-grey);
+  background-color: var(--footer-gray);
   color: white;
   padding: 1.5rem 0;
   flex-shrink: 0;
   width: 100%;
 }
 
-/* Alerts with UChicago colors */
-.alert-maroon {
-  background-color: var(--phoenix-maroon-10);
-  border-color: var(--phoenix-maroon-50);
-  color: var(--phoenix-maroon-80);
+/* Alerts with Caltech colors */
+.alert-orange {
+  background-color: var(--caltech-orange-10);
+  border-color: var(--caltech-orange-50);
+  color: var(--caltech-orange-80);
 }
 
 .alert-gold {
   background-color: rgba(243, 208, 62, 0.1);
-  border-color: var(--light-goldenrod);
+  border-color: var(--light-gold);
   color: #856404;
 }
 
-/* Override Bootstrap alerts with UChicago colors */
+/* Override Bootstrap alerts with Caltech colors */
 .alert-success {
   background-color: rgba(169, 196, 127, 0.1) !important;
-  border-color: var(--light-ivy) !important;
-  color: var(--light-forest) !important;
+  border-color: var(--light-sage) !important;
+  color: var(--light-green) !important;
 }
 
 .alert-danger {
-  background-color: var(--phoenix-maroon-10) !important;
-  border-color: var(--phoenix-maroon-40) !important;
-  color: var(--phoenix-maroon-80) !important;
+  background-color: var(--caltech-orange-10) !important;
+  border-color: var(--caltech-orange-40) !important;
+  color: var(--caltech-orange-80) !important;
 }
 
 .alert-warning {
   background-color: rgba(243, 208, 62, 0.1) !important;
-  border-color: var(--light-goldenrod) !important;
-  color: var(--light-terracotta) !important;
+  border-color: var(--light-gold) !important;
+  color: var(--light-coral) !important;
 }
 
 .alert-info {
   background-color: rgba(62, 177, 200, 0.1) !important;
-  border-color: var(--light-lake) !important;
-  color: var (--light-lake) !important;
+  border-color: var(--light-blue) !important;
+  color: var(--light-blue) !important;
 }
 
 /* Status indicators */
 .status-available {
-  color: var(--light-ivy);
+  color: var(--light-sage);
 }
 
 .status-borrowed {
-  color: var(--light-terracotta);
+  color: var(--light-coral);
 }
 
 .status-lost {
-  color: var(--phoenix-maroon-80);
+  color: var(--caltech-orange-80);
 }
 
-/* Override text-muted to use the UChicago dark greystone */
+/* Override text-muted to use the Caltech dark gray */
 .text-muted {
-  color: var(--dark-greystone) !important;
+  color: var(--dark-gray) !important;
 }
